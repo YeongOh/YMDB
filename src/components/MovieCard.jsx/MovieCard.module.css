@@ -22,3 +22,19 @@
 .content {
   padding: 0 0.5rem 0.5rem;
 }
+
+.footer {
+  color: grey;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date {
+  font-size: 14px;
+}
+
+.rating {
+  font-size: 14px;
+}
