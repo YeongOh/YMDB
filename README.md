@@ -1,5 +1,7 @@
 # Movie Search App
 
+I created this app motivated by [App Ideas Github](https://github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/Movie-App.md)
+
 - This application will help users find their next movie to watch by showing helpful stats
 - Resource needed for the project is movie api, examples include Imdb, MovieDB etc.
 
@@ -13,6 +15,7 @@
 
 ## Additional Features in mind
 
+- [ ] Slider of Movies at Home
 - [ ] Pagination or Infinite Scrolling
 - [ ] Skeleton Screens
 - [ ] Lazy Loading
@@ -23,6 +26,8 @@
 - Vite
 - React Router
 - React Query
+
+## What I Learned
 
 ## Resources
 
