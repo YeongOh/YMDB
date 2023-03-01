@@ -21,8 +21,9 @@ export default function Movies() {
       } catch (error) {
         setError(error);
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     fetchMovies();
   }, []);
@@ -31,7 +32,7 @@ export default function Movies() {
     <main>
       {isLoading && <div>loading...</div>}
       {error && <div>Error</div>}
-      {movies && (
+      {movies?.length && (
         <ul className={styles.ul}>
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
