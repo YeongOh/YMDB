@@ -12,6 +12,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --color-primary: #005cbb;
+  --color-container: #d7e2ff;
+  --color-bg: #ffffff;
+  --color-error: #ba1a1a;
 }
 
 a {
@@ -30,6 +35,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
 }
 
 @media (prefers-color-scheme: light) {

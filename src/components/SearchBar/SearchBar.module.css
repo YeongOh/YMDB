@@ -1,0 +1,49 @@
+.div {
+  max-width: 440px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 30px;
+  overflow: hidden;
+  height: 2.5rem;
+}
+
+.icon {
+  color: grey;
+}
+
+.form:hover {
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+
+.form:focus-within {
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+
+.input {
+  width: 90%;
+  border: none;
+  outline: none;
+  padding-left: 1.5rem;
+  font-size: 16px;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  height: 100%;
+  width: 4rem;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #cccccc;
+}
+
+.button:focus {
+  outline: none;
+  background-color: #cccccc;
+}
