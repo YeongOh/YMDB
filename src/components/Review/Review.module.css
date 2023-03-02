@@ -1,0 +1,46 @@
+.li {
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+
+.header {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  margin-right: 0.5rem;
+}
+
+.timeago {
+  color: grey;
+  font-size: 12px;
+}
+
+.rating {
+  font-weight: 700;
+}
+
+.p {
+  margin-bottom: 0.5rem;
+}
+
+.expandText {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.expandText:hover {
+  text-decoration: underline;
+}
+
+/* overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis; */

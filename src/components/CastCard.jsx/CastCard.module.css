@@ -1,5 +1,6 @@
 .img {
   width: 120px;
+  height: 180px;
   border-radius: 10px;
   object-fit: contain;
   background-color: black;
@@ -7,10 +8,16 @@
 
 .li {
   font-size: 14px;
-  height: 180px;
-  width: 120px;
+  max-width: 120px;
 }
 
 .character {
   color: grey;
+}
+
+.name,
+.character {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

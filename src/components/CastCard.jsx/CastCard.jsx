@@ -3,9 +3,9 @@ import baseProfile from '../../assets/baseProfile.png';
 import { useState } from 'react';
 
 export default function CastCard({ cast }) {
-  const { name, character, profile_path } = cast;
+  const { profile_path: profilePath, name, character } = cast;
   const [imgSrc, setImgSrc] = useState(
-    `https://image.tmdb.org/t/p/w185${profile_path}`
+    `https://image.tmdb.org/t/p/w185${profilePath}`
   );
 
   const handleError = () => setImgSrc(baseProfile);
@@ -18,7 +18,7 @@ export default function CastCard({ cast }) {
         onError={handleError}
         alt={name}
       />
-      <div>{name}</div>
+      <div className={styles.name}>{name}</div>
       <div className={styles.character}>{character}</div>
     </li>
   );

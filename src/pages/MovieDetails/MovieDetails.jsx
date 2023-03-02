@@ -1,7 +1,7 @@
 import styles from './MovieDetails.module.css';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import CastCard from '../../components/CastCard.jsx/CastCard';
 import {
   getMovieCredits,
@@ -9,6 +9,7 @@ import {
   getMovieReviews,
 } from '../../api/api';
 import { useQuery } from 'react-query';
+import Review from '../../components/Review/Review';
 
 const BACKDROP_IMAGE_WIDTH = 1280;
 
@@ -47,9 +48,11 @@ export default function MovieDetails() {
             <span>{movie.genres[0].name}</span>
           </div>
           <p className={styles.p}>{movie.overview}</p>{' '}
-          <a className={styles.a} href={movie.homepage}>
-            Learn more
-          </a>
+          {movie.homepage && (
+            <a className={styles.a} href={movie.homepage}>
+              Learn more
+            </a>
+          )}
         </section>
       )}
 
@@ -61,6 +64,21 @@ export default function MovieDetails() {
               <CastCard key={cast.id} cast={cast} />
             ))}
           </ul>
+        </section>
+      )}
+
+      {reviews?.length > 0 ? (
+        <section>
+          <h2>Reviews</h2>
+          <ul className={styles.reviews}>
+            {reviews.map((review) => (
+              <Review key={review.id} review={review} />
+            ))}
+          </ul>
+        </section>
+      ) : (
+        <section>
+          <h2>There are no reviews about this movie yet!</h2>
         </section>
       )}
     </main>
