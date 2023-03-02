@@ -1,6 +1,19 @@
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3/movie';
 
+export async function getPopularMovies() {
+  try {
+    const response = await fetch(`
+      ${BASE_URL}/popular?api_key=${API_KEY}&language=en-US&page=1`);
+    if (!response.ok) throw new Error();
+    const data = await response.json();
+    console.log(data.results);
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getMovieDetails(movieId) {
   try {
     const response = await fetch(
@@ -36,8 +49,8 @@ export async function getMovieReviews(movieId) {
     );
     if (!response.ok) throw new Error();
     const data = await response.json();
-    console.log(data);
-    return data;
+    console.log(data.results);
+    return data.results;
   } catch (error) {
     console.log(error);
   }

@@ -1,5 +1,4 @@
 import styles from './MovieDetails.module.css';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
@@ -9,19 +8,21 @@ import {
   getMovieDetails,
   getMovieReviews,
 } from '../../api/api';
+import { useQuery } from 'react-query';
 
 const BACKDROP_IMAGE_WIDTH = 1280;
 
 export default function MovieDetails() {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState();
-  const [casts, setCasts] = useState();
-
-  useEffect(() => {
-    getMovieDetails(movieId).then(setMovie);
-    getMovieCredits(movieId).then(setCasts);
-    getMovieReviews(movieId);
-  }, []);
+  const { data: movie } = useQuery(['movie', movieId], () =>
+    getMovieDetails(movieId)
+  );
+  const { data: casts } = useQuery(['movieCasts', movieId], () =>
+    getMovieCredits(movieId)
+  );
+  const { data: reviews } = useQuery(['movieReviews', movieId], () =>
+    getMovieReviews(movieId)
+  );
 
   return (
     <main className={styles.main}>
