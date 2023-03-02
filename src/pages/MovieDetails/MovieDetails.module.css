@@ -1,0 +1,36 @@
+.main {
+  max-width: 1040px;
+}
+
+.img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.titleFooter {
+  color: grey;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  display: flex;
+}
+
+.p {
+  display: inline;
+}
+
+.a:hover {
+  text-decoration: underline;
+}
+
+.castSection {
+  margin: 4rem 0;
+}
+
+.castList {
+  display: flex;
+  gap: 0.5rem;
+}

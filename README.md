@@ -37,3 +37,8 @@ I created this app motivated by [App Ideas Github](https://github.com/florinpop1
 
 [Movie Database App w/ React by Oliver Gomes](http://phobic-heat.surge.sh/)  
 [Movie Browser App w/ React&Redux&Bootstrap by Nataliia Pylypenko](https://api-cinema-10d15.firebaseapp.com/)
+
+## Design Inspired by
+
+- [](https://pedia.watcha.com/)
+- [](https://youtube.com/)

@@ -7,15 +7,15 @@ export default function MovieSearchResult() {
   const { searchQuery } = useParams;
 
   useEffect(() => {
-    const fetchSearchResult = async () => {
+    const getSearchResult = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchQuery}&page=1`
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}&language=en-US&page=1`
       );
       const data = await response.json();
       console.log(data);
     };
 
-    fetchSearchResult();
+    getSearchResult();
   }, []);
 
   return <div></div>;

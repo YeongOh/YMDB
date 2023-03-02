@@ -10,7 +10,7 @@ export default function Movies() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const getPopularMovies = async () => {
       try {
         const response = await fetch(`
         https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
@@ -25,7 +25,7 @@ export default function Movies() {
         setIsLoading(false);
       }
     };
-    fetchMovies();
+    getPopularMovies();
   }, []);
 
   return (

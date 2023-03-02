@@ -29,7 +29,6 @@ export default function MovieCard({ movie }) {
         <div className={styles.title}>{title}</div>
         <div className={styles.footer}>
           <span className={styles.date}>{year}</span>
-          <div>|</div>
           <span className={styles.rating}>
             <FontAwesomeIcon icon={faStar} /> {voteAverage}
           </span>

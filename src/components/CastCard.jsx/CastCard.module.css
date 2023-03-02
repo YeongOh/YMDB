@@ -1,0 +1,16 @@
+.img {
+  width: 120px;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: contain;
+  background-color: black;
+}
+
+.li {
+  font-size: 14px;
+  width: 120px;
+}
+
+.character {
+  color: grey;
+}
