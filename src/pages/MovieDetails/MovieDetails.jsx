@@ -6,6 +6,7 @@ import CastCard from '../../components/CastCard.jsx/CastCard';
 import {
   getMovieCredits,
   getMovieDetails,
+  getMovieImages,
   getMovieReviews,
 } from '../../api/api';
 import { useQuery } from 'react-query';
@@ -24,6 +25,9 @@ export default function MovieDetails() {
   const { data: reviews } = useQuery(['movieReviews', movieId], () =>
     getMovieReviews(movieId)
   );
+  const { data: images } = useQuery(['movieImages', movieId], () =>
+    getMovieImages(movieId)
+  );
 
   return (
     <main className={styles.main}>
@@ -40,7 +44,8 @@ export default function MovieDetails() {
           <div className={styles.titleFooter}>
             <span>{new Date(movie.release_date).getFullYear()}</span>
             <span>
-              <FontAwesomeIcon icon={faStar} /> {movie.vote_average.toFixed(1)}
+              <FontAwesomeIcon className={styles.star} icon={faStar} />{' '}
+              {movie.vote_average.toFixed(1)}
             </span>
             <span>{`${Math.floor(movie.runtime / 60)}h ${Math.floor(
               movie.runtime % 60
@@ -49,7 +54,12 @@ export default function MovieDetails() {
           </div>
           <p className={styles.p}>{movie.overview}</p>{' '}
           {movie.homepage && (
-            <a className={styles.a} href={movie.homepage}>
+            <a
+              className={styles.a}
+              href={movie.homepage}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               Learn more
             </a>
           )}

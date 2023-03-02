@@ -41,6 +41,10 @@
   text-decoration: underline;
 }
 
+.star {
+  color: var(--color-star);
+}
+
 /* overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis; */

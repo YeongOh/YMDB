@@ -30,7 +30,8 @@ export default function MovieCard({ movie }) {
         <div className={styles.footer}>
           <span className={styles.date}>{year}</span>
           <span className={styles.rating}>
-            <FontAwesomeIcon icon={faStar} /> {voteAverage}
+            <FontAwesomeIcon className={styles.star} icon={faStar} />{' '}
+            {voteAverage}
           </span>
         </div>
       </section>

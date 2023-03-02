@@ -1,6 +1,6 @@
 .img {
+  min-height: 180px;
   width: 120px;
-  height: 180px;
   border-radius: 10px;
   object-fit: contain;
   background-color: black;

@@ -23,11 +23,8 @@ export default function Review({ review }) {
     `https://image.tmdb.org/t/p/w185${avatarPath}`
   );
   const [isTextExpanded, setIsTextExpanded] = useState(false);
-
   const handleError = () => setImgSrc(baseProfile);
-
   const ratingHalved = rating / 2 - 1;
-
   const previewContent = getFirstWords(content, PREVIEW_TEXT_COUNT);
 
   return (
@@ -45,6 +42,7 @@ export default function Review({ review }) {
           <div>
             {[...Array(5)].map((star, index) => (
               <FontAwesomeIcon
+                className={styles.star}
                 key={index}
                 icon={
                   index <= ratingHalved

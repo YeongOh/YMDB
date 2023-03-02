@@ -34,3 +34,7 @@
   display: flex;
   gap: 0.5rem;
 }
+
+.star {
+  color: var(--color-star);
+}

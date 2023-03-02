@@ -43,3 +43,7 @@
 .rating {
   font-size: 14px;
 }
+
+.star {
+  color: var(--color-star);
+}
