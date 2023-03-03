@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 import styles from './Movies.module.css';
-import MovieCard from '../../components/MovieCard.jsx/MovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import { getPopularMovies } from '../../api/api';
 import { useQuery } from 'react-query';
 

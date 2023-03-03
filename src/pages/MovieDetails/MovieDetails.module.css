@@ -1,5 +1,7 @@
 .main {
-  max-width: 1040px;
+  max-width: 1440px;
+  display: flex;
+  gap: 2rem;
 }
 
 .titleFooter {

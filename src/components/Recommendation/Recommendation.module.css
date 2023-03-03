@@ -1,0 +1,51 @@
+.li {
+  max-width: 154px;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.li:hover {
+  transform: scale(1.05);
+  transition: transform 0.15s ease-in;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.img {
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content {
+  padding-bottom: 0.5rem;
+}
+
+.footer {
+  color: grey;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date {
+  font-size: 14px;
+}
+
+.rating {
+  font-size: 14px;
+}
+
+.star {
+  color: var(--color-star);
+}

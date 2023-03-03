@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const tmdb = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/movie',
+  baseURL: 'https://api.themoviedb.org/3',
   params: {
     api_key: import.meta.env.VITE_TMDB_API_KEY,
     language: 'en-US',
@@ -10,40 +10,48 @@ const tmdb = axios.create({
 
 export async function getPopularMovies() {
   return tmdb
-    .get('/popular?page=1')
+    .get('/movie/popular?page=1')
     .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
 
 export async function getMovieDetails(movieId) {
   return tmdb
-    .get(`/${movieId}`)
+    .get(`/movie/${movieId}`)
     .then((response) => response.data)
     .catch((error) => console.log(error));
 }
 
 export async function getMovieCredits(movieId) {
   return tmdb
-    .get(`/${movieId}/credits?`)
+    .get(`/movie/${movieId}/credits?`)
     .then((response) => response.data.cast.slice(0, 8))
     .catch((error) => console.log(error));
 }
 
 export async function getMovieReviews(movieId) {
   return tmdb
-    .get(`${movieId}/reviews?page=1`)
+    .get(`/movie/${movieId}/reviews?page=1`)
     .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
 
 export async function getMovieImages(movieId) {
   return tmdb
-    .get(`${movieId}/images`, { params: { language: 'null' } })
+    .get(`/movie/${movieId}/images`, { params: { language: 'null' } })
     .then((response) => response.data.backdrops.slice(0, 5))
     .catch((error) => console.log(error));
 }
 
+export async function getMovieRecommendations(movieId) {
+  return tmdb
+    .get(`/movie/${movieId}/recommendations?page=1`)
+    .then((response) => response.data.results.slice(0, 10))
+    .catch((error) => console.log(error));
+}
+
 export const TMDB_POSTER_URL = {
+  w154: 'https://image.tmdb.org/t/p/w154',
   w300: 'https://image.tmdb.org/t/p/w300',
 };
 
@@ -61,6 +69,11 @@ export const TMDB_IMAGE_URL = {
   profileW45: 'https://image.tmdb.org/t/p/w45',
   profileW185: 'https://image.tmdb.org/t/p/w185',
   backdropW1280: 'https://image.tmdb.org/t/p/w1280',
+};
+
+export const MEDIA_TYPE = {
+  movie: 'movie',
+  tv: 'tv',
 };
 
 // "backdrop_sizes": [

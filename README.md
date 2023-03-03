@@ -1,9 +1,8 @@
 # Movie Search App
 
-I created this app motivated by [App Ideas Github](https://github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/Movie-App.md)
+## Motivation
 
-- This application will help users find their next movie to watch by showing helpful stats
-- Resource needed for the project is movie api, examples include Imdb, MovieDB etc.
+I have been looking for project ideas for a while and I stumbled across the github repo [App Ideas Github](https://github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/Movie-App.md) and decided to build it.
 
 ## User Stories
 
@@ -26,8 +25,18 @@ I created this app motivated by [App Ideas Github](https://github.com/florinpop1
 - Vite
 - React Router
 - React Query
+- Fontawesome
+- Axios
+
+## Design
+
+- I have always been a big fan of minimalistic design. I designed layout, buttons, search bars after [Youtube](https://youtube.com/) and [Watchapedia](https://pedia.watcha.com/).
 
 ## What I Learned
+
+### Building small components first
+
+- In my previous projects, I always built navbar first, but without knowing what features and links are going to be in the final project, it was not reasonable. It often ended with frustrations because I would spend a lot of time building shells, not features. When it became time to implement features, I was already exhausted. This time, I focused on building components with full features first, then I put them together. By implementing small features in the beginning, I felt like I was actually getting work done and progressing fast.
 
 ## Resources
 
@@ -37,8 +46,3 @@ I created this app motivated by [App Ideas Github](https://github.com/florinpop1
 
 [Movie Database App w/ React by Oliver Gomes](http://phobic-heat.surge.sh/)  
 [Movie Browser App w/ React&Redux&Bootstrap by Nataliia Pylypenko](https://api-cinema-10d15.firebaseapp.com/)
-
-## Design Inspired by
-
-- [](https://pedia.watcha.com/)
-- [](https://youtube.com/)
