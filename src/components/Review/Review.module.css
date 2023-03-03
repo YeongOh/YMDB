@@ -33,6 +33,9 @@
 }
 
 .expandText {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
   cursor: pointer;
   font-weight: 700;
 }

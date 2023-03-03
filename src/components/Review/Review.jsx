@@ -8,6 +8,7 @@ import {
   faStarHalfStroke as faStarHalf,
   faStar,
 } from '@fortawesome/free-regular-svg-icons';
+import { TMDB_PROFILE_URL } from '../../api/api';
 
 const PREVIEW_TEXT_COUNT = 500;
 
@@ -19,9 +20,7 @@ export default function Review({ review }) {
     author_details,
   } = review;
   const { avatar_path: avatarPath, rating } = author_details;
-  const [imgSrc, setImgSrc] = useState(
-    `https://image.tmdb.org/t/p/w185${avatarPath}`
-  );
+  const [imgSrc, setImgSrc] = useState(`${TMDB_PROFILE_URL.w45}${avatarPath}`);
   const [isTextExpanded, setIsTextExpanded] = useState(false);
   const handleError = () => setImgSrc(baseProfile);
   const ratingHalved = rating / 2 - 1;
@@ -63,24 +62,25 @@ export default function Review({ review }) {
         <>
           <p className={styles.p}>{previewContent}</p>
           {previewContent !== content && (
-            <span
+            <button
               className={styles.expandText}
               onClick={() => setIsTextExpanded(true)}
+              type='button'
             >
               Read more
-            </span>
+            </button>
           )}
         </>
       )}
       {isTextExpanded && (
         <>
           <p className={styles.p}>{content}</p>
-          <span
+          <button
             className={styles.expandText}
             onClick={() => setIsTextExpanded(false)}
           >
             Show less
-          </span>
+          </button>
         </>
       )}
     </li>
@@ -89,7 +89,5 @@ export default function Review({ review }) {
 
 function getFirstWords(str, wordCount) {
   if (str.length <= wordCount) return str;
-
-  //   return str.split('\n', 1)[0];
   return `${str.substring(0, wordCount)}...`;
 }

@@ -8,11 +8,11 @@ import {
   getMovieDetails,
   getMovieImages,
   getMovieReviews,
+  TMDB_BACKDROP_URL,
 } from '../../api/api';
 import { useQuery } from 'react-query';
 import Review from '../../components/Review/Review';
-
-const BACKDROP_IMAGE_WIDTH = 1280;
+import Gallery from '../../components/Gallery/Gallery';
 
 export default function MovieDetails() {
   const { movieId } = useParams();
@@ -31,15 +31,9 @@ export default function MovieDetails() {
 
   return (
     <main className={styles.main}>
+      {images?.length > 0 && <Gallery images={images} title={movie?.title} />}
       {movie && (
         <section>
-          <div className={styles.backdropWrapper}>
-            <img
-              className={styles.img}
-              src={`https://image.tmdb.org/t/p/w${BACKDROP_IMAGE_WIDTH}${movie.backdrop_path}`}
-              alt=''
-            />
-          </div>
           <h1>{movie.title}</h1>{' '}
           <div className={styles.titleFooter}>
             <span>{new Date(movie.release_date).getFullYear()}</span>
@@ -66,7 +60,7 @@ export default function MovieDetails() {
         </section>
       )}
 
-      {casts && (
+      {casts?.length > 0 && (
         <section className={styles.castSection}>
           <h2>Cast</h2>
           <ul className={styles.castList}>
@@ -94,40 +88,3 @@ export default function MovieDetails() {
     </main>
   );
 }
-
-// "backdrop_sizes": [
-//     "w300",
-//     "w780",
-//     "w1280",
-//     "original"
-//   ],
-//   "logo_sizes": [
-//     "w45",
-//     "w92",
-//     "w154",
-//     "w185",
-//     "w300",
-//     "w500",
-//     "original"
-//   ],
-//   "poster_sizes": [
-//     "w92",
-//     "w154",
-//     "w185",
-//     "w342",
-//     "w500",
-//     "w780",
-//     "original"
-//   ],
-//   "profile_sizes": [
-//     "w45",
-//     "w185",
-//     "h632",
-//     "original"
-//   ],
-//   "still_sizes": [
-//     "w92",
-//     "w185",
-//     "w300",
-//     "original"
-//   ]

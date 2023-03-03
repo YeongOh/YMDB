@@ -2,11 +2,6 @@
   max-width: 1040px;
 }
 
-.img {
-  width: 100%;
-  border-radius: 20px;
-}
-
 .titleFooter {
   color: grey;
   display: flex;
