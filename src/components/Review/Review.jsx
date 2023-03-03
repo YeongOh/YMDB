@@ -78,6 +78,7 @@ export default function Review({ review }) {
           <button
             className={styles.expandText}
             onClick={() => setIsTextExpanded(false)}
+            type='button'
           >
             Show less
           </button>

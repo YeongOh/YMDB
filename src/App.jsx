@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import ScrollToTop from './hooks/scrollToTop';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,7 +18,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <SearchBar />
-      <Outlet />
+      <ScrollToTop>
+        <Outlet />
+      </ScrollToTop>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
