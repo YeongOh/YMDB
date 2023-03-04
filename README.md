@@ -32,11 +32,15 @@ I have been looking for project ideas for a while and I stumbled across the gith
 
 - I have always been a big fan of minimalistic design. I designed layout, buttons, search bars after [Youtube](https://youtube.com/) and [Watchapedia](https://pedia.watcha.com/).
 
-## What I Learned
+## My Journey
 
 ### Building small components first
 
 - In my previous projects, I always built navbar first, but without knowing what features and links are going to be in the final project, it was not reasonable. It often ended with frustrations because I would spend a lot of time building shells, not features. When it became time to implement features, I was already exhausted. This time, I focused on building components with full features first, then I put them together. By implementing small features in the beginning, I felt like I was actually getting work done and progressing fast.
+
+### React Query and pagination
+
+- I have never done the paginations in the past. The standard way of doing it seems to be storing page as a state from what I have seen in Youtube. However, the major drawback to this approach is that you need to sync URL params with your state. Otherwise, the user can't go to certain page by typing in URL. This is one of the things I do not like about lazy loading or some poorly built SPA. I implemented pagination by providing page number from params and useQuery to load a new page.
 
 ## Resources
 

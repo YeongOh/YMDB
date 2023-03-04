@@ -4,6 +4,10 @@
   gap: 2rem;
 }
 
+.contentWrapper {
+  max-width: 1240px;
+}
+
 .titleFooter {
   color: grey;
   display: flex;

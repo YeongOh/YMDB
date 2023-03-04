@@ -8,9 +8,23 @@ const tmdb = axios.create({
   },
 });
 
-export async function getPopularMovies() {
+export async function getPopular(mediaType, pageNumber) {
   return tmdb
-    .get('/movie/popular?page=1')
+    .get(`/${mediaType}/popular?page=${pageNumber}`)
+    .then((response) => response.data.results)
+    .catch((error) => console.log(error));
+}
+
+export async function getNowPlaying(mediaType, pageNumber) {
+  return tmdb
+    .get(`/${mediaType}/now_playing?page=${pageNumber}`)
+    .then((response) => response.data.results)
+    .catch((error) => console.log(error));
+}
+
+export async function getTopRated(mediaType, pageNumber) {
+  return tmdb
+    .get(`/${mediaType}/top_rated?page=${pageNumber}`)
     .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
@@ -62,13 +76,6 @@ export const TMDB_PROFILE_URL = {
 
 export const TMDB_BACKDROP_URL = {
   w1280: 'https://image.tmdb.org/t/p/w1280',
-};
-
-export const TMDB_IMAGE_URL = {
-  posterW300: 'https://image.tmdb.org/t/p/w300',
-  profileW45: 'https://image.tmdb.org/t/p/w45',
-  profileW185: 'https://image.tmdb.org/t/p/w185',
-  backdropW1280: 'https://image.tmdb.org/t/p/w1280',
 };
 
 export const MEDIA_TYPE = {

@@ -1,23 +1,26 @@
-import styles from './MovieCard.module.css';
+import styles from './Card.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { TMDB_POSTER_URL } from '../../api/api';
 
-export default function MovieCard({ movie }) {
+export default function Card({ mediaType, media }) {
   const {
     vote_average: voteAverage,
     poster_path: posterPath,
     release_date: releaseDate,
+    first_air_date: firstAirDate,
     title,
+    name,
     id,
-  } = movie;
+  } = media;
   const navigate = useNavigate();
 
-  const year = new Date(releaseDate).getFullYear();
+  const year =
+    new Date(releaseDate).getFullYear() || new Date(firstAirDate).getFullYear();
 
   const handleClick = () => {
-    return navigate(`movie/${id}`);
+    return navigate(`/${mediaType}/${id}`);
   };
 
   return (
@@ -28,7 +31,7 @@ export default function MovieCard({ movie }) {
         alt={title}
       ></img>
       <div className={styles.content}>
-        <div className={styles.title}>{title}</div>
+        <div className={styles.title}>{title || name}</div>
         <div className={styles.footer}>
           <span className={styles.date}>{year}</span>
           <span className={styles.rating}>

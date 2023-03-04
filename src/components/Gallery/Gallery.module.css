@@ -2,6 +2,7 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .img {

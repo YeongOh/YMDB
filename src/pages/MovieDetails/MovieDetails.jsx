@@ -37,8 +37,8 @@ export default function MovieDetails() {
 
   return (
     <main className={styles.main}>
-      <div>
-        {images?.length > 0 && <Gallery images={images} title={movie?.title} />}
+      <div className={styles.contentWrapper}>
+        {images?.length ? <Gallery images={images} title={movie?.title} /> : ''}
         {movie && (
           <section>
             <h1>{movie.title}</h1>{' '}
@@ -67,7 +67,7 @@ export default function MovieDetails() {
           </section>
         )}
 
-        {casts?.length && (
+        {casts?.length ? (
           <section className={styles.castSection}>
             <h2>Cast</h2>
             <ul className={styles.castList}>
@@ -76,6 +76,8 @@ export default function MovieDetails() {
               ))}
             </ul>
           </section>
+        ) : (
+          ''
         )}
 
         {reviews?.length ? (
@@ -107,11 +109,7 @@ export default function MovieDetails() {
           </ul>
         </aisde>
       ) : (
-        <aisde>
-          <h2 className={styles.noRecommendation}>
-            Recommendations were not found for this movie.
-          </h2>
-        </aisde>
+        ''
       )}
     </main>
   );
