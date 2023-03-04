@@ -30,7 +30,7 @@ I have been looking for project ideas for a while and I stumbled across the gith
 
 ## Design
 
-- I have always been a big fan of minimalistic design. I designed layout, buttons, search bars after [Youtube](https://youtube.com/) and [Watchapedia](https://pedia.watcha.com/).
+- I have always been a big fan of minimalistic design. I designed layout, buttons, search bars after [Youtube](https://youtube.com/), [Watchapedia](https://pedia.watcha.com/), [Material UI](https://mui.com/).
 
 ## My Journey
 

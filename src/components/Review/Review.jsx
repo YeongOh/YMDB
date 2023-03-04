@@ -20,21 +20,25 @@ export default function Review({ review }) {
     author_details,
   } = review;
   const { avatar_path: avatarPath, rating } = author_details;
-  const [imgSrc, setImgSrc] = useState(`${TMDB_PROFILE_URL.w45}${avatarPath}`);
   const [isTextExpanded, setIsTextExpanded] = useState(false);
-  const handleError = () => setImgSrc(baseProfile);
+
   const ratingHalved = rating / 2 - 1;
   const previewContent = getFirstWords(content, PREVIEW_TEXT_COUNT);
+
+  let imgSrc;
+
+  if (avatarPath) {
+    imgSrc = avatarPath.includes('https://')
+      ? `${avatarPath.slice(1)}`
+      : `${TMDB_PROFILE_URL.w45}${avatarPath}`;
+  } else {
+    imgSrc = baseProfile;
+  }
 
   return (
     <li className={styles.li}>
       <div className={styles.header}>
-        <img
-          className={styles.img}
-          src={imgSrc}
-          onError={handleError}
-          alt={name}
-        />
+        <img className={styles.img} src={imgSrc} alt={name} />
         <div>
           <span className={styles.name}>{name}</span>{' '}
           <TimeAgo className={styles.timeago} datetime={createdAt} />

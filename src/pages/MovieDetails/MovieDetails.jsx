@@ -97,7 +97,7 @@ export default function MovieDetails() {
       </div>
 
       {recommendations?.length ? (
-        <aisde>
+        <aside>
           <h2>Recommendations</h2>
           <ul className={styles.recommendations}>
             {recommendations.map((recommendation) => (
@@ -107,7 +107,7 @@ export default function MovieDetails() {
               />
             ))}
           </ul>
-        </aisde>
+        </aside>
       ) : (
         ''
       )}

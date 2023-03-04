@@ -11,21 +11,23 @@ const tmdb = axios.create({
 export async function getPopular(mediaType, pageNumber) {
   return tmdb
     .get(`/${mediaType}/popular?page=${pageNumber}`)
-    .then((response) => response.data.results)
+    .then((response) => {
+      return response.data;
+    })
     .catch((error) => console.log(error));
 }
 
 export async function getNowPlaying(mediaType, pageNumber) {
   return tmdb
     .get(`/${mediaType}/now_playing?page=${pageNumber}`)
-    .then((response) => response.data.results)
+    .then((response) => response.data)
     .catch((error) => console.log(error));
 }
 
 export async function getTopRated(mediaType, pageNumber) {
   return tmdb
     .get(`/${mediaType}/top_rated?page=${pageNumber}`)
-    .then((response) => response.data.results)
+    .then((response) => response.data)
     .catch((error) => console.log(error));
 }
 

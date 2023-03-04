@@ -7,10 +7,10 @@ import CategoryNavbar from '../../components/CategoryNavbar/CategoryNavbar';
 export default function Popular({ mediaType }) {
   const { pageNumber } = useParams();
   const page = pageNumber || 1;
-  const { data: medias } = useQuery(
-    [`${mediaType}Popular`, `page ${page}`],
-    () => getPopular(mediaType, page)
+  const { data } = useQuery([`${mediaType}Popular`, `page ${page}`], () =>
+    getPopular(mediaType, page)
   );
+  const { total_pages: totalPages, results: medias } = data || {};
 
   return (
     <main>
