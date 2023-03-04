@@ -3,25 +3,39 @@ import styles from './CategoryNavbar.module.css';
 
 export default function CategoryNavbar() {
   return (
-    <ul className={styles.ul}>
-      <NavLink
-        to='/movie/nowplaying'
-        className={({ isActive }) => (isActive ? styles.navActive : styles.nav)}
-      >
-        On Air
-      </NavLink>
-      <NavLink
-        to='/movie/popular'
-        className={({ isActive }) => (isActive ? styles.navActive : styles.nav)}
-      >
-        Popular
-      </NavLink>
-      <NavLink
-        to='/movie/toprated'
-        className={({ isActive }) => (isActive ? styles.navActive : styles.nav)}
-      >
-        Top Rated
-      </NavLink>
-    </ul>
+    <nav aria-label='Category'>
+      <ul className={styles.ul}>
+        <li>
+          <NavLink
+            to='/movie/nowplaying'
+            className={({ isActive }) =>
+              isActive ? styles.navActive : styles.nav
+            }
+          >
+            On Air
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/movie/popular'
+            className={({ isActive }) =>
+              isActive ? styles.navActive : styles.nav
+            }
+          >
+            Popular
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/movie/toprated'
+            className={({ isActive }) =>
+              isActive ? styles.navActive : styles.nav
+            }
+          >
+            Top Rated
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 }

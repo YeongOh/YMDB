@@ -7,15 +7,15 @@
 .nav,
 .navActive {
   font-size: 14px;
-  color: black;
+  color: inherit;
   background-color: rgb(233, 233, 233);
-  padding: 0.5em;
+  padding: 0.5rem;
   border-radius: 8px;
 }
 
 .nav:hover {
   background-color: rgb(211, 211, 211);
-  color: black;
+  color: inherit;
 }
 
 .navActive,

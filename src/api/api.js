@@ -12,7 +12,7 @@ export async function getPopular(mediaType, pageNumber) {
   return tmdb
     .get(`/${mediaType}/popular?page=${pageNumber}`)
     .then((response) => {
-      return response.data;
+      return response.data.results;
     })
     .catch((error) => console.log(error));
 }
@@ -20,14 +20,14 @@ export async function getPopular(mediaType, pageNumber) {
 export async function getNowPlaying(mediaType, pageNumber) {
   return tmdb
     .get(`/${mediaType}/now_playing?page=${pageNumber}`)
-    .then((response) => response.data)
+    .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
 
 export async function getTopRated(mediaType, pageNumber) {
   return tmdb
     .get(`/${mediaType}/top_rated?page=${pageNumber}`)
-    .then((response) => response.data)
+    .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
 

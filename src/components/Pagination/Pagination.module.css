@@ -1,0 +1,35 @@
+.ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.link,
+.link:hover {
+  color: inherit;
+  border-radius: 50%;
+}
+
+.span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.span:hover:not(.active) {
+  background-color: var(--color-grey-hover);
+}
+
+.active {
+  background-color: var(--color-grey-focus);
+  color: white;
+}
+
+.chevron {
+  font-size: 14px;
+  color: inherit;
+}

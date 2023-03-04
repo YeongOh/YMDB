@@ -18,6 +18,10 @@
   --color-bg: #ffffff;
   --color-error: #ba1a1a;
   --color-star: rgb(255, 187, 0);
+
+  --color-grey: rgb(233, 233, 233);
+  --color-grey-hover: rgb(211, 211, 211);
+  --color-grey-focus: rgb(66, 66, 66);
 }
 
 a {
