@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import MovieDetails from './pages/MovieDetails/MovieDetails';
 import MovieSearchResult from './pages/MovieSearchResult/MovieSearchResult';
 import { MEDIA_TYPE } from './api/api';
 import Popular from './pages/Popular/Popular';
 import NowPlaying from './pages/NowPlaying/NowPlaying';
 import TopRated from './pages/TopRated/TopRated';
+import MediaDetails from './pages/MediaDetails/MediaDetails';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'movie',
         element: <NowPlaying mediaType={MEDIA_TYPE.movie} />,
+      },
+      {
+        path: 'tv',
+        element: <NowPlaying mediaType={MEDIA_TYPE.tv} />,
       },
       {
         path: 'movie/nowplaying',
@@ -49,8 +53,36 @@ const router = createBrowserRouter([
         element: <TopRated mediaType={MEDIA_TYPE.movie} />,
       },
       {
-        path: 'movie/:movieId',
-        element: <MovieDetails />,
+        path: 'tv/nowplaying',
+        element: <NowPlaying mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'tv/nowplaying/:pageNumber',
+        element: <NowPlaying mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'tv/popular',
+        element: <Popular mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'tv/popular/:pageNumber',
+        element: <Popular mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'tv/toprated',
+        element: <TopRated mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'tv/toprated/:pageNumber',
+        element: <TopRated mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'movie/:mediaId',
+        element: <MediaDetails mediaType={MEDIA_TYPE.movie} />,
+      },
+      {
+        path: 'tv/:mediaId',
+        element: <MediaDetails mediaType={MEDIA_TYPE.tv} />,
       },
       {
         path: 'search/:searchQuery',

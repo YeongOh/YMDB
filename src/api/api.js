@@ -18,8 +18,9 @@ export async function getPopular(mediaType, pageNumber) {
 }
 
 export async function getNowPlaying(mediaType, pageNumber) {
+  const query = mediaType === 'movie' ? '/now_playing?' : '/on_the_air?';
   return tmdb
-    .get(`/${mediaType}/now_playing?page=${pageNumber}`)
+    .get(`/${mediaType}${query}page=${pageNumber}`)
     .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
@@ -31,37 +32,37 @@ export async function getTopRated(mediaType, pageNumber) {
     .catch((error) => console.log(error));
 }
 
-export async function getMovieDetails(movieId) {
+export async function getMediaDetails(mediaType, mediaId) {
   return tmdb
-    .get(`/movie/${movieId}`)
+    .get(`/${mediaType}/${mediaId}`)
     .then((response) => response.data)
     .catch((error) => console.log(error));
 }
 
-export async function getMovieCredits(movieId) {
+export async function getMediaCredits(mediaType, mediaId) {
   return tmdb
-    .get(`/movie/${movieId}/credits?`)
+    .get(`/${mediaType}/${mediaId}/credits?`)
     .then((response) => response.data.cast.slice(0, 8))
     .catch((error) => console.log(error));
 }
 
-export async function getMovieReviews(movieId) {
+export async function getMediaReviews(mediaType, mediaId) {
   return tmdb
-    .get(`/movie/${movieId}/reviews?page=1`)
+    .get(`/${mediaType}/${mediaId}/reviews?page=1`)
     .then((response) => response.data.results)
     .catch((error) => console.log(error));
 }
 
-export async function getMovieImages(movieId) {
+export async function getMediaImages(mediaType, mediaId) {
   return tmdb
-    .get(`/movie/${movieId}/images`, { params: { language: 'null' } })
+    .get(`/${mediaType}/${mediaId}/images`, { params: { language: 'null' } })
     .then((response) => response.data.backdrops.slice(0, 5))
     .catch((error) => console.log(error));
 }
 
-export async function getMovieRecommendations(movieId) {
+export async function getMediaRecommendations(mediaType, mediaId) {
   return tmdb
-    .get(`/movie/${movieId}/recommendations?page=1`)
+    .get(`/${mediaType}/${mediaId}/recommendations?page=1`)
     .then((response) => response.data.results.slice(0, 10))
     .catch((error) => console.log(error));
 }

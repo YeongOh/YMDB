@@ -15,9 +15,16 @@ export default function Pagination({ currentPage }) {
   let currentURL;
   let startIndex;
 
+  const isAtBaseURL = delimeter.at(-1) === 'movie' || delimeter.at(-1) === 'tv';
+
   if (Number.isNaN(lastDelimeter)) {
-    // /popular/ without page number
-    currentURL = delimeter.join('/') + '/';
+    // at movie/ or tv/
+    if (isAtBaseURL) {
+      currentURL = `${delimeter.join('/')}/nowplaying/`;
+    } else {
+      // at movie/nowplaying without page number
+      currentURL = delimeter.join('/') + '/';
+    }
     startIndex = 1;
   } else {
     currentURL = delimeter.slice(0, -1).join('/') + '/';

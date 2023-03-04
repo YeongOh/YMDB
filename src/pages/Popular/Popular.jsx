@@ -15,10 +15,10 @@ export default function Popular({ mediaType }) {
   });
 
   return (
-    <main>
-      <CategoryNavbar />
-      <Medias mediaType={mediaType} medias={medias} />;
+    <>
+      <CategoryNavbar mediaType={mediaType} />
+      <Medias mediaType={mediaType} medias={medias} />
       <Pagination currentPage={page} />
-    </main>
+    </>
   );
 }

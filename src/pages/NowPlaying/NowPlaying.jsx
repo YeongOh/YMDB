@@ -9,16 +9,16 @@ export default function NowPlaying({ mediaType }) {
   const { pageNumber } = useParams();
   const page = Number(pageNumber) || 1;
   const { data: medias } = useQuery({
-    queryKey: [`${mediaType}NowPlaying`, `page ${page}`],
+    queryKey: [`${mediaType}NowPlaying`, page],
     queryFn: () => getNowPlaying(mediaType, page),
     keepPreviousData: true,
   });
 
   return (
-    <main>
-      <CategoryNavbar />
-      <Medias mediaType={mediaType} medias={medias} />;
+    <>
+      <CategoryNavbar mediaType={mediaType} />
+      <Medias mediaType={mediaType} medias={medias} />
       <Pagination currentPage={page} />
-    </main>
+    </>
   );
 }

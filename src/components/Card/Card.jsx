@@ -16,8 +16,7 @@ export default function Card({ mediaType, media }) {
   } = media;
   const navigate = useNavigate();
 
-  const year =
-    new Date(releaseDate).getFullYear() || new Date(firstAirDate).getFullYear();
+  const year = new Date(releaseDate || firstAirDate).getFullYear();
 
   const handleClick = () => {
     return navigate(`/${mediaType}/${id}`);

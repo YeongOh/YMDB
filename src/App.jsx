@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Outlet } from 'react-router-dom';
-import './App.css';
-import SearchBar from './components/SearchBar/SearchBar';
+import styles from './App.module.css';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import ScrollToTop from './hooks/scrollToTop';
+import NavBar from './components/NavBar/NavBar';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,9 +17,11 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <SearchBar />
+      <NavBar />
       <ScrollToTop>
-        <Outlet />
+        <main className={styles.main}>
+          <Outlet />
+        </main>
       </ScrollToTop>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

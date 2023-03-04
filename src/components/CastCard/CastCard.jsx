@@ -14,6 +14,7 @@ export default function CastCard({ cast }) {
   return (
     <li className={styles.li}>
       <img className={styles.img} src={imgSrc} alt={name} />
+
       <div className={styles.name}>{name}</div>
       <div className={styles.character}>{character}</div>
     </li>

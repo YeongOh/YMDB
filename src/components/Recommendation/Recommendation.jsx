@@ -11,11 +11,12 @@ export default function Recommendation({ recommendation }) {
     media_type: mediaType,
     vote_average: voteAverage,
     release_date: releaseDate,
+    first_air_date: firstAirDate,
     title,
     id,
   } = recommendation;
 
-  const year = new Date(releaseDate).getFullYear();
+  const year = new Date(releaseDate || firstAirDate).getFullYear();
 
   const handleClick = () => {
     return navigate(`/${mediaType}/${id}`);

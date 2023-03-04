@@ -9,16 +9,16 @@ export default function TopRated({ mediaType }) {
   const { pageNumber } = useParams();
   const page = Number(pageNumber) || 1;
   const { data: medias } = useQuery({
-    queryKey: [`${mediaType}TopRated`, `page ${page}`],
+    queryKey: [`${mediaType}TopRated`, page],
     queryFn: () => getTopRated(mediaType, page),
     keepPreviousData: true,
   });
 
   return (
-    <main>
-      <CategoryNavbar />
-      <Medias mediaType={mediaType} medias={medias} />;
+    <>
+      <CategoryNavbar mediaType={mediaType} />
+      <Medias mediaType={mediaType} medias={medias} />
       <Pagination currentPage={page} />
-    </main>
+    </>
   );
 }
