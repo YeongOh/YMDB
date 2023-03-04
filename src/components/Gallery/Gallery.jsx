@@ -66,6 +66,7 @@ export default function Gallery({ images, title }) {
       <div className={styles.progress}>
         {[...Array(length)].map((item, index) => (
           <FontAwesomeIcon
+            key={index}
             style={sliderIndex === index && colorProgressCircle}
             className={styles.circle}
             icon={faCircle}

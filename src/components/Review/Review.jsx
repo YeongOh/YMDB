@@ -25,14 +25,12 @@ export default function Review({ review }) {
   const ratingHalved = rating / 2 - 1;
   const previewContent = getFirstWords(content, PREVIEW_TEXT_COUNT);
 
-  let imgSrc;
+  let imgSrc = baseProfile;
 
   if (avatarPath) {
     imgSrc = avatarPath.includes('https://')
       ? `${avatarPath.slice(1)}`
       : `${TMDB_PROFILE_URL.w45}${avatarPath}`;
-  } else {
-    imgSrc = baseProfile;
   }
 
   return (
