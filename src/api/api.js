@@ -67,6 +67,18 @@ export async function getMediaRecommendations(mediaType, mediaId) {
     .catch((error) => console.log(error));
 }
 
+export async function getSearchResult(keyword, page) {
+  return tmdb
+    .get(`/search/movie?query=${keyword}&page=1`)
+    .then((response) => {
+      return {
+        results: response.data.results,
+        totalPages: response.data.total_pages,
+      };
+    })
+    .catch((error) => console.log(error));
+}
+
 export const TMDB_POSTER_URL = {
   w154: 'https://image.tmdb.org/t/p/w154',
   w300: 'https://image.tmdb.org/t/p/w300',

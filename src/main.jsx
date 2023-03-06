@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import MovieSearchResult from './pages/MovieSearchResult/MovieSearchResult';
 import { MEDIA_TYPE } from './api/api';
 import Popular from './pages/Popular/Popular';
 import NowPlaying from './pages/NowPlaying/NowPlaying';
 import TopRated from './pages/TopRated/TopRated';
 import MediaDetails from './pages/MediaDetails/MediaDetails';
+import MediaSearchResult from './pages/MediaSearchResult/MediaSearchResult';
 
 const router = createBrowserRouter([
   {
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'search/:searchQuery',
-        element: <MovieSearchResult />,
+        element: <MediaSearchResult />,
       },
     ],
   },

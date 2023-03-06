@@ -11,8 +11,8 @@ export default function SearchBar() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (searchText.trim() === '') return;
-    const encodedSearchText = encodeURI(searchText);
-    return navigate(`search/${encodedSearchText}`);
+    // const encodedSearchText = encodeURI(searchText);
+    return navigate(`/search/${searchText}`);
   };
 
   return (
