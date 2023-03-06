@@ -42,6 +42,8 @@ I have been looking for project ideas for a while and I stumbled across the gith
 
 - I have never done the paginations in the past. The standard way of doing it seems to be storing page as a state from what I have seen in Youtube. However, the major drawback to this approach is that you need to sync URL params with your state. Otherwise, the user can't go to certain page by typing in URL. This is one of the things I do not like about lazy loading or some poorly built SPA. I implemented pagination by providing page number from params and useQuery to load a new page.
 
+### Extracting API data formatting logic outside of components
+
 ## Resources
 
 - [MovieDB Api](https://developers.themoviedb.org/3)

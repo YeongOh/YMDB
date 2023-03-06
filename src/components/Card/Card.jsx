@@ -5,18 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { TMDB_POSTER_URL } from '../../api/api';
 
 export default function Card({ mediaType, media }) {
-  const {
-    vote_average: voteAverage,
-    poster_path: posterPath,
-    release_date: releaseDate,
-    first_air_date: firstAirDate,
-    title,
-    name,
-    id,
-  } = media;
+  const { voteAverage, posterPath, releaseDate, title, name, id } = media;
   const navigate = useNavigate();
 
-  const year = new Date(releaseDate || firstAirDate).getFullYear();
+  const year = new Date(releaseDate).getFullYear();
 
   const handleClick = () => {
     return navigate(`/${mediaType}/${id}`);

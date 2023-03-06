@@ -9,7 +9,6 @@ export default function MediaSearchResult() {
   const { data } = useQuery({
     queryKey: [`searchResult`, searchQuery],
     queryFn: () => getSearchResult(searchQuery, 1),
-    keepPreviousData: true,
   });
   const { totalPages, results } = data || {};
 

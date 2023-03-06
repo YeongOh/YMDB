@@ -45,22 +45,18 @@ export default function MediaDetails({ mediaType }) {
           <section>
             <h1>{media.title}</h1>{' '}
             <div className={styles.titleFooter}>
-              <span>
-                {new Date(
-                  media.release_date || media.first_air_date
-                ).getFullYear()}
-              </span>
+              <span>{new Date(media.releaseDate).getFullYear()}</span>
               <span>
                 <FontAwesomeIcon className={styles.star} icon={faStar} />{' '}
-                {media.vote_average.toFixed(1)}
+                {media.voteAverage.toFixed(1)}
               </span>
               {media.runtime && (
                 <span>{`${Math.floor(media.runtime / 60)}h ${Math.floor(
                   media.runtime % 60
                 )}m`}</span>
               )}
-              {media.number_of_seasons && (
-                <span>{`${media.number_of_seasons} Seasons`}</span>
+              {media.numberOfSeasons && (
+                <span>{`${media.numberOfSeasons} Seasons`}</span>
               )}
               <span>{media.genres[0].name}</span>
             </div>

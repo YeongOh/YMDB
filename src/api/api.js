@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { formatMedia } from '../utils';
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -8,34 +9,36 @@ const tmdb = axios.create({
   },
 });
 
-export async function getPopular(mediaType, pageNumber) {
+export async function getPopular(mediaType, pageNumber = 1) {
   return tmdb
     .get(`/${mediaType}/popular?page=${pageNumber}`)
     .then((response) => {
-      return response.data.results;
+      return response.data.results.map((result) => formatMedia(result));
     })
     .catch((error) => console.log(error));
 }
 
-export async function getNowPlaying(mediaType, pageNumber) {
+export async function getNowPlaying(mediaType, pageNumber = 1) {
   const query = mediaType === 'movie' ? '/now_playing?' : '/on_the_air?';
   return tmdb
     .get(`/${mediaType}${query}page=${pageNumber}`)
-    .then((response) => response.data.results)
+    .then((response) =>
+      response.data.results.map((result) => formatMedia(result))
+    )
     .catch((error) => console.log(error));
 }
 
-export async function getTopRated(mediaType, pageNumber) {
+export async function getTopRated(mediaType, pageNumber = 1) {
   return tmdb
     .get(`/${mediaType}/top_rated?page=${pageNumber}`)
-    .then((response) => response.data.results)
+    .then((response) => response.data.results((result) => formatMedia(result)))
     .catch((error) => console.log(error));
 }
 
 export async function getMediaDetails(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}`)
-    .then((response) => response.data)
+    .then((response) => formatMedia(response.data))
     .catch((error) => console.log(error));
 }
 
