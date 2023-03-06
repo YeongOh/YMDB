@@ -49,7 +49,7 @@ export async function getMediaCredits(mediaType, mediaId) {
 export async function getMediaReviews(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}/reviews?page=1`)
-    .then((response) => response.data.results)
+    .then((response) => response.data)
     .catch((error) => console.log(error));
 }
 

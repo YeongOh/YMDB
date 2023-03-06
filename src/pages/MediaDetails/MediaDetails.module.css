@@ -23,6 +23,10 @@
   display: inline;
 }
 
+.a {
+  white-space: nowrap;
+}
+
 .a:hover {
   text-decoration: underline;
 }

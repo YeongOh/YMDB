@@ -31,6 +31,16 @@ export default function NavBar() {
                 TV
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to='/watchlist'
+                className={({ isActive }) =>
+                  isActive ? styles.navActive : styles.nav
+                }
+              >
+                Watchlist
+              </NavLink>
+            </li>
           </ul>
         </nav>
         <SearchBar />

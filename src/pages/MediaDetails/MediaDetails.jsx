@@ -26,14 +26,16 @@ export default function MediaDetails({ mediaType }) {
   const { data: casts } = useQuery([`${mediaType}Casts`, mediaId], () =>
     getMediaCredits(mediaType, mediaId)
   );
-  const { data: reviews } = useQuery([`${mediaType}Reviews`, mediaId], () =>
-    getMediaReviews(mediaType, mediaId)
-  );
-
   const { data: recommendations } = useQuery(
     [`${mediaType}Recommendations`, mediaId],
     () => getMediaRecommendations(mediaType, mediaId)
   );
+  const { data: reviewsData } = useQuery([`${mediaType}Reviews`, mediaId], () =>
+    getMediaReviews(mediaType, mediaId)
+  );
+
+  const { results: reviews, total_results: reviewTotalResults } =
+    reviewsData || {};
 
   return (
     <div className={styles.allContent}>
@@ -70,7 +72,7 @@ export default function MediaDetails({ mediaType }) {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                Learn more
+                Official Site
               </a>
             )}
           </section>
@@ -90,14 +92,21 @@ export default function MediaDetails({ mediaType }) {
         )}
 
         {reviews?.length ? (
-          <section>
-            <h2>Reviews</h2>
-            <ul className={styles.reviews}>
-              {reviews.map((review) => (
-                <Review key={review.id} review={review} />
-              ))}
-            </ul>
-          </section>
+          <>
+            <section>
+              <h2>{`${reviewTotalResults}`} Reviews</h2>
+              <ul className={styles.reviews}>
+                {reviews.map((review) => (
+                  <Review key={review.id} review={review} />
+                ))}
+              </ul>
+            </section>
+            {/* {reviewPage < reviewTotalPages && (
+              <button onClick={() => setReviewPage((prev) => prev + 1)}>
+                Next
+              </button>
+            )} */}
+          </>
         ) : (
           <section>
             <h2>There are no reviews about this movie yet!</h2>
