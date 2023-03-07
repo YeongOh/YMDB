@@ -5,12 +5,10 @@ import Medias from '../../components/Medias/Medias';
 
 export default function MediaSearchResult() {
   const { searchQuery } = useParams();
-  console.log(searchQuery);
-  const { data } = useQuery({
+  const { data: results } = useQuery({
     queryKey: [`searchResult`, searchQuery],
     queryFn: () => getSearchResult(searchQuery, 1),
   });
-  const { totalPages, results } = data || {};
 
   return (
     <>

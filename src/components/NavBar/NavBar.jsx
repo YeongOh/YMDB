@@ -1,3 +1,6 @@
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { faFilm, faTv } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import styles from './NavBar.module.css';
@@ -18,6 +21,7 @@ export default function NavBar() {
                   isActive ? styles.navActive : styles.nav
                 }
               >
+                <FontAwesomeIcon icon={faFilm} />
                 Movies
               </NavLink>
             </li>
@@ -28,6 +32,7 @@ export default function NavBar() {
                   isActive ? styles.navActive : styles.nav
                 }
               >
+                <FontAwesomeIcon icon={faTv} />
                 TV
               </NavLink>
             </li>
@@ -38,10 +43,11 @@ export default function NavBar() {
                   isActive ? styles.navActive : styles.nav
                 }
               >
+                <FontAwesomeIcon icon={faBookmark} />
                 Watchlist
               </NavLink>
             </li>
-            <li>
+            <li className={styles.searchBarLi}>
               <SearchBar />
             </li>
           </ul>

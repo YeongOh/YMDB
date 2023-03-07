@@ -25,9 +25,11 @@
 
 .nav,
 .navActive {
-  min-width: 40px;
-  display: inline-block;
-  text-align: center;
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 16px;
   color: inherit;
   padding: 0.5rem;
@@ -45,4 +47,8 @@
   font-weight: 700;
   color: var(--color-primary);
   border-bottom: 4px solid var(--color-primary);
+}
+
+.searchBarLi {
+  margin-left: 4rem;
 }

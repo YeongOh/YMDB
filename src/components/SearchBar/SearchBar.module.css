@@ -1,5 +1,5 @@
 .div {
-  max-width: 400px;
+  min-width: 400px;
 }
 
 .form {
@@ -37,6 +37,7 @@
   height: 100%;
   width: 4rem;
   font-size: 16px;
+  background-color: #f3f3f3;
 }
 
 .button:hover {

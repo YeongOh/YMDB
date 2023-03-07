@@ -104,12 +104,9 @@ export async function getMediaRecommendations(mediaType, mediaId) {
 export async function getSearchResult(keyword, page) {
   return tmdb
     .get(`/search/movie?query=${keyword}&page=1`)
-    .then((response) => {
-      return {
-        results: response.data.results,
-        totalPages: response.data.total_pages,
-      };
-    })
+    .then((response) =>
+      response.data.results.map((result) => formatMedia(result))
+    )
     .catch((error) => console.log(error));
 }
 
