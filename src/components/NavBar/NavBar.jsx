@@ -32,6 +32,9 @@ export default function NavBar() {
               </NavLink>
             </li>
             <li>
+              <SearchBar />
+            </li>
+            <li>
               <NavLink
                 to='/watchlist'
                 className={({ isActive }) =>
@@ -43,7 +46,6 @@ export default function NavBar() {
             </li>
           </ul>
         </nav>
-        <SearchBar />
       </div>
     </header>
   );

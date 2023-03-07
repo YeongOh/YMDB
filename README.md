@@ -44,6 +44,21 @@ I have been looking for project ideas for a while and I stumbled across the gith
 
 ### Extracting API data formatting logic outside of components
 
+### Slider Pattern
+
+slider {
+overflow:hidden
+}
+
+wrapper {
+display: flex;
+transform: translateX();
+}
+
+slide {
+width: 20%; // for 5 slides
+}
+
 ## Resources
 
 - [MovieDB Api](https://developers.themoviedb.org/3)

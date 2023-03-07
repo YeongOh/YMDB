@@ -24,6 +24,10 @@
   --color-grey-focus: rgb(66, 66, 66);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   color: #646cff;
   text-decoration: inherit;

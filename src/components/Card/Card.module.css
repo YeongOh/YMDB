@@ -1,11 +1,12 @@
-.card {
+.card,
+.sliderCard {
   overflow: hidden;
   max-width: 300px;
   padding: 0.5rem;
+  border-radius: 10px;
 }
 
 .card:hover {
-  border-radius: 10px;
   cursor: pointer;
   transform: scale(1.05);
   transition: transform 0.15s ease-in;
@@ -13,7 +14,20 @@
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
+.sliderCard {
+  min-width: 16.667%;
+}
+
+.sliderCard:hover {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease-in;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
 .img {
+  width: 100%;
   border-radius: 10px;
 }
 

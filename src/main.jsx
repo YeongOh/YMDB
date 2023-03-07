@@ -9,6 +9,7 @@ import NowPlaying from './pages/NowPlaying/NowPlaying';
 import TopRated from './pages/TopRated/TopRated';
 import MediaDetails from './pages/MediaDetails/MediaDetails';
 import MediaSearchResult from './pages/MediaSearchResult/MediaSearchResult';
+import Home from './pages/Home/Home';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Popular mediaType={MEDIA_TYPE.movie} />,
+        element: <Home mediaType={MEDIA_TYPE.movie} />,
       },
       {
         path: 'movie',

@@ -31,7 +31,9 @@ export async function getNowPlaying(mediaType, pageNumber = 1) {
 export async function getTopRated(mediaType, pageNumber = 1) {
   return tmdb
     .get(`/${mediaType}/top_rated?page=${pageNumber}`)
-    .then((response) => response.data.results((result) => formatMedia(result)))
+    .then((response) =>
+      response.data.results.map((result) => formatMedia(result))
+    )
     .catch((error) => console.log(error));
 }
 

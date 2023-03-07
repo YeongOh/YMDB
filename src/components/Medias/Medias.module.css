@@ -5,6 +5,10 @@
   gap: 6rem 1rem;
 }
 
+.sliderUl {
+  display: flex;
+}
+
 .navActive {
   background-color: blue;
 }

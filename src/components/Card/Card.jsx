@@ -4,7 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { TMDB_POSTER_URL } from '../../api/api';
 
-export default function Card({ mediaType, media }) {
+export default function Card({ mediaType, media, slider }) {
   const { voteAverage, posterPath, releaseDate, title, name, id } = media;
   const navigate = useNavigate();
 
@@ -15,12 +15,15 @@ export default function Card({ mediaType, media }) {
   };
 
   return (
-    <div className={styles.card} onClick={handleClick}>
+    <li
+      className={`${slider ? styles.sliderCard : styles.card}`}
+      onClick={handleClick}
+    >
       <img
         className={styles.img}
         src={`${TMDB_POSTER_URL.w300}${posterPath}`}
         alt={title}
-      ></img>
+      />
       <div className={styles.content}>
         <div className={styles.title}>{title || name}</div>
         <div className={styles.footer}>
@@ -31,6 +34,6 @@ export default function Card({ mediaType, media }) {
           </span>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
