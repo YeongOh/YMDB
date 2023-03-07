@@ -1,5 +1,8 @@
+import { MEDIA_TYPE } from './api/api';
+
 export function formatMedia(media) {
   return {
+    mediaType: media.title ? MEDIA_TYPE.movie : MEDIA_TYPE.tv,
     genres: media.genre_ids || media.genres,
     title: media.title || media.name,
     releaseDate: media.release_date || media.first_air_date,

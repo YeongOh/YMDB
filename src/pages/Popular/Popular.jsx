@@ -17,7 +17,7 @@ export default function Popular({ mediaType }) {
   return (
     <>
       <CategoryNavbar mediaType={mediaType} />
-      <Medias mediaType={mediaType} medias={medias} />
+      <Medias medias={medias} />
       <Pagination currentPage={page} />
     </>
   );

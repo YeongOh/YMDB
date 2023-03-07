@@ -4,6 +4,7 @@ import styles from './App.module.css';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import ScrollToTop from './hooks/scrollToTop';
 import NavBar from './components/NavBar/NavBar';
+import { WatchListProvider } from './context/WatchlistContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,13 +18,15 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <NavBar />
-      <ScrollToTop>
-        <main className={styles.main}>
-          <Outlet />
-        </main>
-      </ScrollToTop>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <WatchListProvider>
+        <NavBar />
+        <ScrollToTop>
+          <main className={styles.main}>
+            <Outlet />
+          </main>
+        </ScrollToTop>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </WatchListProvider>
     </QueryClientProvider>
   );
 }

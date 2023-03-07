@@ -12,9 +12,9 @@ const tmdb = axios.create({
 export async function getPopular(mediaType, pageNumber = 1) {
   return tmdb
     .get(`/${mediaType}/popular?page=${pageNumber}`)
-    .then((response) => {
-      return response.data.results.map((result) => formatMedia(result));
-    })
+    .then((response) =>
+      response.data.results.map((result) => formatMedia(result))
+    )
     .catch((error) => console.log(error));
 }
 

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { TMDB_POSTER_URL } from '../../api/api';
+import WatchListButton from '../ui/WatchlistButton/WatchListButton';
 
 export default function Card({ mediaType, media, slider }) {
   const { voteAverage, posterPath, releaseDate, title, name, id } = media;
@@ -24,13 +25,14 @@ export default function Card({ mediaType, media, slider }) {
         src={`${TMDB_POSTER_URL.w300}${posterPath}`}
         alt={title}
       />
+      <WatchListButton media={media} className={styles.watchlistButton} />
       <div className={styles.content}>
         <div className={styles.title}>{title || name}</div>
         <div className={styles.footer}>
           <span className={styles.date}>{year}</span>
           <span className={styles.rating}>
             <FontAwesomeIcon className={styles.star} icon={faStar} />{' '}
-            {voteAverage}
+            {voteAverage.toFixed(1)}
           </span>
         </div>
       </div>

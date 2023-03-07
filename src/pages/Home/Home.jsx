@@ -42,25 +42,25 @@ export default function Home() {
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={movieNowPlaying} slider />
       </Slider>
-      <h2 className={styles.h2}>Popular Movies</h2>
-      <Slider length={3}>
-        <Medias mediaType={MEDIA_TYPE.movie} medias={moviePopular} slider />
-      </Slider>
       <h2 className={styles.h2}>Top Rated Movies</h2>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={movieTopRated} slider />
+      </Slider>
+      <h2 className={styles.h2}>Popular Movies</h2>
+      <Slider length={3}>
+        <Medias mediaType={MEDIA_TYPE.movie} medias={moviePopular} slider />
       </Slider>
       <h2 className={styles.h2}>On Air</h2>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvNowPlaying} slider />
       </Slider>
-      <h2 className={styles.h2}>Popular Shows</h2>
-      <Slider length={3}>
-        <Medias mediaType={MEDIA_TYPE.tv} medias={tvPopular} slider />
-      </Slider>
       <h2 className={styles.h2}>Top Rated Shows</h2>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvTopRated} slider />
+      </Slider>
+      <h2 className={styles.h2}>Popular Shows</h2>
+      <Slider length={3}>
+        <Medias mediaType={MEDIA_TYPE.tv} medias={tvPopular} slider />
       </Slider>
     </>
   );

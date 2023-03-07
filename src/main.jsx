@@ -10,6 +10,7 @@ import TopRated from './pages/TopRated/TopRated';
 import MediaDetails from './pages/MediaDetails/MediaDetails';
 import MediaSearchResult from './pages/MediaSearchResult/MediaSearchResult';
 import Home from './pages/Home/Home';
+import Watchlist from './pages/Watchlist/Watchlist';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: 'tv',
         element: <NowPlaying mediaType={MEDIA_TYPE.tv} />,
+      },
+      {
+        path: 'search/:searchQuery',
+        element: <MediaSearchResult />,
+      },
+      {
+        path: 'watchlist',
+        element: <Watchlist />,
       },
       {
         path: 'movie/nowplaying',
@@ -84,10 +93,6 @@ const router = createBrowserRouter([
       {
         path: 'tv/:mediaId',
         element: <MediaDetails mediaType={MEDIA_TYPE.tv} />,
-      },
-      {
-        path: 'search/:searchQuery',
-        element: <MediaSearchResult />,
       },
     ],
   },

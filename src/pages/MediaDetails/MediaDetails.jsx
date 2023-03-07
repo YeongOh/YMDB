@@ -14,6 +14,7 @@ import { useQuery } from 'react-query';
 import Review from '../../components/Review/Review';
 import Gallery from '../../components/Gallery/Gallery';
 import Recommendation from '../../components/Recommendation/Recommendation';
+import WatchListButton from '../../components/ui/WatchlistButton/WatchListButton';
 
 export default function MediaDetails({ mediaType }) {
   const { mediaId } = useParams();
@@ -43,7 +44,13 @@ export default function MediaDetails({ mediaType }) {
         {images?.length ? <Gallery images={images} title={media?.title} /> : ''}
         {media && (
           <section>
-            <h1>{media.title}</h1>{' '}
+            <header className={styles.titleHeader}>
+              <h1 className={styles.h1}>{media.title}</h1>{' '}
+              <WatchListButton
+                className={styles.watchlistButton}
+                media={media}
+              />
+            </header>
             <div className={styles.titleFooter}>
               <span>{new Date(media.releaseDate).getFullYear()}</span>
               <span>
