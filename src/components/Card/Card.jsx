@@ -9,7 +9,7 @@ export default function Card({ mediaType, media, slider }) {
   const { voteAverage, posterPath, releaseDate, title, name, id } = media;
   const navigate = useNavigate();
 
-  const year = new Date(releaseDate).getFullYear();
+  const year = String(new Date(releaseDate).getFullYear());
 
   const handleClick = () => {
     return navigate(`/${mediaType}/${id}`);

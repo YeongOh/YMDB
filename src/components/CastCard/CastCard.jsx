@@ -3,7 +3,7 @@ import baseProfile from '../../assets/baseProfile.png';
 import { TMDB_PROFILE_URL } from '../../api/api';
 
 export default function CastCard({ cast }) {
-  const { profile_path: profilePath, name, character } = cast;
+  const { profilePath, name, character } = cast;
 
   let imgSrc = baseProfile;
 

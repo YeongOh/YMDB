@@ -47,28 +47,57 @@ export async function getMediaDetails(mediaType, mediaId) {
 export async function getMediaCredits(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}/credits?`)
-    .then((response) => response.data.cast.slice(0, 20))
+    .then((response) =>
+      response.data.cast.slice(0, 20).map((eachCast) => {
+        return {
+          id: eachCast.id,
+          name: eachCast.name,
+          character: eachCast.character,
+          profilePath: eachCast.profile_path,
+        };
+      })
+    )
     .catch((error) => console.log(error));
 }
 
 export async function getMediaReviews(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}/reviews?page=1`)
-    .then((response) => response.data)
+    .then((response) => {
+      return {
+        reviewTotalResults: response.data.total_results,
+        reviews: response.data.results.map((result) => ({
+          id: result.id,
+          name: result.author,
+          createdAt: result.created_at,
+          content: result.content,
+          authorDetails: {
+            avatarPath: result.author_details.avatar_path,
+            rating: result.author_details.rating,
+          },
+        })),
+      };
+    })
     .catch((error) => console.log(error));
 }
 
 export async function getMediaImages(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}/images`, { params: { language: 'null' } })
-    .then((response) => response.data.backdrops.slice(0, 5))
+    .then((response) =>
+      response.data.backdrops.slice(0, 10).map((backdrop) => {
+        return { filePath: backdrop.file_path };
+      })
+    )
     .catch((error) => console.log(error));
 }
 
 export async function getMediaRecommendations(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}/recommendations?page=1`)
-    .then((response) => response.data.results.slice(0, 10))
+    .then((response) =>
+      response.data.results.slice(0, 10).map((result) => formatMedia(result))
+    )
     .catch((error) => console.log(error));
 }
 

@@ -13,13 +13,8 @@ import { TMDB_PROFILE_URL } from '../../api/api';
 const PREVIEW_TEXT_COUNT = 500;
 
 export default function Review({ review }) {
-  const {
-    author: name,
-    created_at: createdAt,
-    content,
-    author_details,
-  } = review;
-  const { avatar_path: avatarPath, rating } = author_details;
+  const { name, createdAt, content, authorDetails } = review;
+  const { avatarPath, rating } = authorDetails;
   const [isTextExpanded, setIsTextExpanded] = useState(false);
 
   const ratingHalved = rating / 2 - 1;

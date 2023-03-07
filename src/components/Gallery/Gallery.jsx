@@ -35,10 +35,10 @@ export default function Gallery({ images, title }) {
       <div className={styles.slider}>
         {images.map((image) => (
           <img
-            key={image.file_path}
+            key={image.filePath}
             style={moveSlide}
             className={styles.img}
-            src={`${TMDB_BACKDROP_URL.w1280}${image.file_path}`}
+            src={`${TMDB_BACKDROP_URL.w1280}${image.filePath}`}
             alt={title}
           />
         ))}

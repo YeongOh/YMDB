@@ -36,9 +36,6 @@ export default function MediaDetails({ mediaType }) {
     getMediaReviews(mediaType, mediaId)
   );
 
-  const { results: reviews, total_results: reviewTotalResults } =
-    reviewsData || {};
-
   return (
     <div className={styles.allContent}>
       <div className={styles.contentWrapper}>
@@ -98,21 +95,16 @@ export default function MediaDetails({ mediaType }) {
           ''
         )}
 
-        {reviews?.length ? (
+        {reviewsData?.reviews?.length ? (
           <>
             <section>
-              <h2>{`${reviewTotalResults}`} Reviews</h2>
+              <h2>{`${reviewsData.reviewTotalResults}`} Reviews</h2>
               <ul className={styles.reviews}>
-                {reviews.map((review) => (
+                {reviewsData.reviews.map((review) => (
                   <Review key={review.id} review={review} />
                 ))}
               </ul>
             </section>
-            {/* {reviewPage < reviewTotalPages && (
-              <button onClick={() => setReviewPage((prev) => prev + 1)}>
-                Next
-              </button>
-            )} */}
           </>
         ) : (
           <section>

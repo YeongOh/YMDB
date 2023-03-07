@@ -7,8 +7,6 @@ export function WatchListProvider({ children }) {
     JSON.parse(localStorage.getItem('watchlist')) || []
   );
 
-  console.log(watchlist);
-
   const addWatchlist = (newMedia) => {
     if (!isInWatchlist(newMedia.id)) setWatchlist([...watchlist, newMedia]);
   };
