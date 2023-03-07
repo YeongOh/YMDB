@@ -15,6 +15,7 @@ import Review from '../../components/Review/Review';
 import Gallery from '../../components/Gallery/Gallery';
 import Recommendation from '../../components/Recommendation/Recommendation';
 import WatchListButton from '../../components/ui/WatchlistButton/WatchListButton';
+import HorizontalScroll from 'react-horizontal-scrolling';
 
 export default function MediaDetails({ mediaType }) {
   const { mediaId } = useParams();
@@ -84,11 +85,14 @@ export default function MediaDetails({ mediaType }) {
         {casts?.length ? (
           <section className={styles.castSection}>
             <h2>Cast</h2>
-            <ul className={styles.castList}>
-              {casts.map((cast) => (
-                <CastCard key={cast.id} cast={cast} />
-              ))}
-            </ul>
+
+            <HorizontalScroll className={styles.horizontalScroll}>
+              <ul className={styles.castList}>
+                {casts.map((cast) => (
+                  <CastCard key={cast.id} cast={cast} />
+                ))}
+              </ul>
+            </HorizontalScroll>
           </section>
         ) : (
           ''

@@ -68,6 +68,7 @@ export default function Gallery({ images, title }) {
           <FontAwesomeIcon
             key={index}
             style={sliderIndex === index && colorProgressCircle}
+            onClick={() => setSliderIndex(index)}
             className={styles.circle}
             icon={faCircle}
           />

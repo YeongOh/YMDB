@@ -47,7 +47,7 @@ export async function getMediaDetails(mediaType, mediaId) {
 export async function getMediaCredits(mediaType, mediaId) {
   return tmdb
     .get(`/${mediaType}/${mediaId}/credits?`)
-    .then((response) => response.data.cast.slice(0, 8))
+    .then((response) => response.data.cast.slice(0, 20))
     .catch((error) => console.log(error));
 }
 
