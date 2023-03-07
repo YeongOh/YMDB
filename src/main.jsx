@@ -11,16 +11,18 @@ import MediaDetails from './pages/MediaDetails/MediaDetails';
 import MediaSearchResult from './pages/MediaSearchResult/MediaSearchResult';
 import Home from './pages/Home/Home';
 import Watchlist from './pages/Watchlist/Watchlist';
+import NotFound from './pages/NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <div>error</div>,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
         element: <Home mediaType={MEDIA_TYPE.movie} />,
+        errorElement: <div>error</div>,
       },
       {
         path: 'movie',

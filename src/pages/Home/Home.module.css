@@ -1,4 +1,7 @@
-.h2 {
+.link {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 20px;
   margin-top: 2rem;
   margin-left: 1rem;
 }

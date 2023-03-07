@@ -1,8 +1,9 @@
 .img {
-  min-height: 175px;
+  min-height: 179px;
   width: 120px;
   object-fit: contain;
   background-color: black;
+  border-radius: 10px;
 }
 
 .li {

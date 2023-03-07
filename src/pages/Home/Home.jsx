@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import {
   getNowPlaying,
   getPopular,
@@ -38,27 +39,39 @@ export default function Home() {
 
   return (
     <>
-      <h2 className={styles.h2}>In Theaters</h2>
+      <Link to='/movie/nowPlaying' className={styles.link}>
+        In Theaters
+      </Link>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={movieNowPlaying} slider />
       </Slider>
-      <h2 className={styles.h2}>Top Rated Movies</h2>
+      <Link to='/movie/topRated' className={styles.link}>
+        Top Rated Movies
+      </Link>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={movieTopRated} slider />
       </Slider>
-      <h2 className={styles.h2}>Popular Movies</h2>
+      <Link to='/movie/popular' className={styles.link}>
+        Popular Movies
+      </Link>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={moviePopular} slider />
       </Slider>
-      <h2 className={styles.h2}>On Air</h2>
+      <Link to='/tv/nowPlaying' className={styles.link}>
+        On Air
+      </Link>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvNowPlaying} slider />
       </Slider>
-      <h2 className={styles.h2}>Top Rated Shows</h2>
+      <Link to='/tv/topRated' className={styles.link}>
+        Top Rated TV Shows
+      </Link>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvTopRated} slider />
       </Slider>
-      <h2 className={styles.h2}>Popular Shows</h2>
+      <Link to='/tv/popular' className={styles.link}>
+        Popular TV Shows
+      </Link>
       <Slider length={3}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvPopular} slider />
       </Slider>
