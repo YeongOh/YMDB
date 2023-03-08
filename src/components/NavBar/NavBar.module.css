@@ -44,7 +44,7 @@
 .nav,
 .navActive {
   min-width: 80px;
-  min-height: 49px;
+  min-height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
