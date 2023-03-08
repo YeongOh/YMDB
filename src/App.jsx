@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Outlet } from 'react-router-dom';
 import styles from './App.module.css';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import ScrollToTop from './components/ui/scrollToTop';
 import NavBar from './components/NavBar/NavBar';
 import { WatchListProvider } from './context/WatchlistContext';
@@ -29,7 +28,6 @@ function App() {
             </main>
             <Footer />
           </ScrollToTop>
-          <ReactQueryDevtools initialIsOpen={false} />
         </HelmetProvider>
       </WatchListProvider>
     </QueryClientProvider>

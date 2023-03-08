@@ -6,19 +6,18 @@ I have been looking for project ideas for a while and I stumbled across the gith
 
 ## User Stories
 
-- [ ] User can see all the latest movie on the front page
-- [ ] User scroll down to see all other movies according to release date
-- [ ] User can click on any of the movie to go to their own separate page
-- [ ] User can then see all about the movie ratings, about, actors present on each separate movie page
-- [ ] User can create their own watch list
+- [x] User can see all the latest movie on the front page
+- [x] User scroll down to see all other movies according to release date
+- [x] User can click on any of the movie to go to their own separate page
+- [x] User can then see all about the movie ratings, about, actors present on each separate movie page
+- [x] User can create their own watch list
 
 ## Additional Features in mind
 
-- [ ] Slider of Movies at Home
-- [ ] Pagination or Infinite Scrolling
+- [x] Slider of Movies at Home
+- [x] Pagination or Infinite Scrolling
 - [ ] Skeleton Screens
 - [ ] Lazy Loading
-- [ ] Multi word search separated by a comma or a white-space
 
 ## Framework and Libraries used
 
@@ -26,6 +25,8 @@ I have been looking for project ideas for a while and I stumbled across the gith
 - React Router
 - React Query
 - Fontawesome
+- Timeago
+- React Horizontal Scrolling
 - Axios
 
 ## Design
@@ -44,8 +45,13 @@ I have been looking for project ideas for a while and I stumbled across the gith
 
 ### Extracting API data formatting logic outside of components
 
-### Slider Pattern
+When the data has the property such as poster_path, I altered its name in my component with destructuring {poster_path : posterPath} = data. However, rather than having my component deal with API logic, I created a function that handles renaming data properties in utils.js so that my component no longer has to worry about if the data has camelCase property or not.
 
+### Slider Pattern Reference
+
+- I have played around how I could implement my own slider and the following is the pattern that works with most of cases. However, I plan to use the library in the future as it allows easier customizaitons.
+
+```cs
 slider {
 overflow:hidden
 }
@@ -58,6 +64,7 @@ transform: translateX();
 slide {
 width: 20%; // for 5 slides
 }
+```
 
 ## Resources
 
