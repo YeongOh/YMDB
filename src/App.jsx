@@ -6,6 +6,7 @@ import ScrollToTop from './components/ui/scrollToTop';
 import NavBar from './components/NavBar/NavBar';
 import { WatchListProvider } from './context/WatchlistContext';
 import { HelmetProvider } from 'react-helmet-async';
+import Footer from './components/Footer/Footer';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,6 +27,7 @@ function App() {
             <main className={styles.main}>
               <Outlet />
             </main>
+            <Footer />
           </ScrollToTop>
           <ReactQueryDevtools initialIsOpen={false} />
         </HelmetProvider>
