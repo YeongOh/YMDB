@@ -3,6 +3,13 @@
   margin: 0 auto;
 }
 
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 95vh;
+}
+
 /* @media screen and (max-width: var(--tablet-width)) {
   .main {
     max-width: 1024px;

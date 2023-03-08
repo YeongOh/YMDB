@@ -9,7 +9,7 @@ export default function Watchlist() {
   return (
     <>
       <Helmet>
-        <title>{`${mediaTypeTitle}`} - YMDB</title>
+        <title>My Watchlist - YMDB</title>
       </Helmet>
       <section className={styles.section}>
         <h1 className={styles.h1}>{watchlist?.length} Watchlist</h1>

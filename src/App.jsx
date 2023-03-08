@@ -23,10 +23,12 @@ function App() {
         <HelmetProvider>
           <NavBar />
           <ScrollToTop>
-            <main className={styles.main}>
-              <Outlet />
-            </main>
-            <Footer />
+            <div className={styles.mainWrapper}>
+              <main className={styles.main}>
+                <Outlet />
+              </main>
+              <Footer />
+            </div>
           </ScrollToTop>
         </HelmetProvider>
       </WatchListProvider>
