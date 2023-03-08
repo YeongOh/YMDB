@@ -26,6 +26,10 @@
   --tablet-width: 1024px;
 }
 
+html {
+  /* scrollbar-gutter: stable; */
+}
+
 * {
   box-sizing: border-box;
 }

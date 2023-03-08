@@ -10,6 +10,7 @@
   border-radius: 30px;
   overflow: hidden;
   height: 2.5rem;
+  max-width: 500px;
 }
 
 .icon {
@@ -50,16 +51,17 @@
   background-color: #cccccc;
 }
 
-@media screen and (max-width: 480px) {
-  .form {
-    top: 4rem;
-    right: 5rem;
-    position: absolute;
-    background-color: white;
+@media screen and (max-width: 500px) {
+  .div {
+    width: auto;
   }
 
-  .input {
-    min-width: 200px;
+  .form {
+    top: 4rem;
+    right: 2rem;
+    position: absolute;
+    background-color: white;
+    min-width: 250px;
   }
 
   .iconButton {

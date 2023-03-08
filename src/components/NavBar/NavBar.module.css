@@ -15,8 +15,14 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 10rem;
+  justify-content: space-between;
+  gap: 4rem;
   padding: 0 1rem;
+}
+
+.div {
+  display: flex;
+  gap: 2rem;
 }
 
 .ul {
@@ -32,6 +38,7 @@
   font-weight: 700;
   color: var(--color-primary);
   padding: 0.5rem;
+  min-width: 60px;
 }
 
 .nav,
@@ -61,30 +68,26 @@
   border-bottom: 4px solid var(--color-primary);
 }
 
-.searchBarLi {
-  margin-left: 4rem;
-  min-width: 70%;
+.searchBarDiv {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 1024px) {
   .wrapper {
-    max-width: 600px;
-    gap: 4rem;
+    gap: 0rem;
   }
   .nav,
   .navActive {
     min-width: 60px;
   }
-
-  .searchBarLi {
-    margin-left: 1rem;
-    width: 20%;
-  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
+  .div {
+    gap: 0rem;
+  }
   .wrapper {
-    max-width: 480px;
     gap: 0rem;
   }
 }

@@ -13,50 +13,50 @@ export default function NavBar() {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
-        <NavLink className={styles.home} to='/'>
-          <img className={styles.logo} src='/logo.png' alt='' />
-          YMDB
-        </NavLink>
-        <nav>
-          <ul className={styles.ul}>
-            <li>
-              <NavLink
-                to='/movie'
-                className={({ isActive }) =>
-                  isActive ? styles.navActive : styles.nav
-                }
-              >
-                <FontAwesomeIcon icon={faFilm} />
-                {!isTabletScreen && !isMobileScreen && `Movies`}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/tv'
-                className={({ isActive }) =>
-                  isActive ? styles.navActive : styles.nav
-                }
-              >
-                <FontAwesomeIcon icon={faTv} />
-                {!isTabletScreen && !isMobileScreen && `TV`}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/watchlist'
-                className={({ isActive }) =>
-                  isActive ? styles.navActive : styles.nav
-                }
-              >
-                <FontAwesomeIcon icon={faBookmark} />
-                {!isTabletScreen && !isMobileScreen && `Watchlist`}
-              </NavLink>
-            </li>
-            <li className={styles.searchBarLi}>
-              <SearchBar />
-            </li>
-          </ul>
-        </nav>
+        <div className={styles.div}>
+          <NavLink className={styles.home} to='/'>
+            <img className={styles.logo} src='/logo.png' alt='' />
+            {!isTabletScreen && !isMobileScreen && `YMDB`}
+          </NavLink>
+          <nav>
+            <ul className={styles.ul}>
+              <li>
+                <NavLink
+                  to='/movie'
+                  className={({ isActive }) =>
+                    isActive ? styles.navActive : styles.nav
+                  }
+                >
+                  <FontAwesomeIcon icon={faFilm} />
+                  {!isTabletScreen && !isMobileScreen && `Movies`}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/tv'
+                  className={({ isActive }) =>
+                    isActive ? styles.navActive : styles.nav
+                  }
+                >
+                  <FontAwesomeIcon icon={faTv} />
+                  {!isTabletScreen && !isMobileScreen && `TV`}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/watchlist'
+                  className={({ isActive }) =>
+                    isActive ? styles.navActive : styles.nav
+                  }
+                >
+                  <FontAwesomeIcon icon={faBookmark} />
+                  {!isTabletScreen && !isMobileScreen && `Watchlist`}
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <SearchBar />
       </div>
     </header>
   );

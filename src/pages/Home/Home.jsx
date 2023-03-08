@@ -40,7 +40,7 @@ export default function Home() {
   });
 
   const isTabletScreen = useMediaQuery('only screen and (max-width: 1024px)');
-  const isMobileScreen = useMediaQuery('only screen and (max-width: 480px)');
+  const isMobileScreen = useMediaQuery('only screen and (max-width: 500px)');
 
   let sliderLength = isTabletScreen ? 5 : isMobileScreen ? 8 : 3;
 

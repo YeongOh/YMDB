@@ -8,7 +8,7 @@ import { useMediaQuery } from '@react-hook/media-query';
 export default function SearchBar() {
   const [searchText, setSearchText] = useState('');
   const [openSearch, setOpenSearch] = useState(false);
-  const isMobileScreen = useMediaQuery('only screen and (max-width: 480px)');
+  const isMobileScreen = useMediaQuery('only screen and (max-width: 500px)');
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
