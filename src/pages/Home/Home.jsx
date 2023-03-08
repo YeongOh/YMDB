@@ -1,5 +1,6 @@
 import { useMediaQuery } from '@react-hook/media-query';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import {
@@ -45,6 +46,9 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>YMDB - Movies and TV shows</title>
+      </Helmet>
       <Link to='/movie/nowPlaying' className={styles.link}>
         In Theaters
       </Link>

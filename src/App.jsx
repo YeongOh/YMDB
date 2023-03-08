@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import ScrollToTop from './components/ui/scrollToTop';
 import NavBar from './components/NavBar/NavBar';
 import { WatchListProvider } from './context/WatchlistContext';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,13 +20,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <WatchListProvider>
-        <NavBar />
-        <ScrollToTop>
-          <main className={styles.main}>
-            <Outlet />
-          </main>
-        </ScrollToTop>
-        <ReactQueryDevtools initialIsOpen={false} />
+        <HelmetProvider>
+          <NavBar />
+          <ScrollToTop>
+            <main className={styles.main}>
+              <Outlet />
+            </main>
+          </ScrollToTop>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </HelmetProvider>
       </WatchListProvider>
     </QueryClientProvider>
   );

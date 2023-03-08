@@ -1,9 +1,10 @@
-import { getPopular } from '../../api/api';
+import { getPopular, MEDIA_TYPE } from '../../api/api';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Medias from '../../components/Medias/Medias';
 import CategoryNavbar from '../../components/CategoryNavbar/CategoryNavbar';
 import Pagination from '../../components/Pagination/Pagination';
+import { Helmet } from 'react-helmet-async';
 
 export default function Popular({ mediaType }) {
   const { pageNumber } = useParams();
@@ -14,8 +15,13 @@ export default function Popular({ mediaType }) {
     keepPreviousData: true,
   });
 
+  const mediaTypeTitle = mediaType === MEDIA_TYPE.movie ? 'Movies' : 'TV Shows';
+
   return (
     <>
+      <Helmet>
+        <title>Popular {`${mediaTypeTitle}`} - YMDB</title>
+      </Helmet>
       <CategoryNavbar mediaType={mediaType} />
       <Medias medias={medias} />
       <Pagination currentPage={page} />

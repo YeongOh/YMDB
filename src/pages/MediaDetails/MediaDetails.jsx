@@ -16,6 +16,7 @@ import Gallery from '../../components/Gallery/Gallery';
 import Recommendation from '../../components/Recommendation/Recommendation';
 import WatchListButton from '../../components/ui/WatchlistButton/WatchListButton';
 import HorizontalScroll from 'react-horizontal-scrolling';
+import { Helmet } from 'react-helmet-async';
 
 export default function MediaDetails({ mediaType }) {
   const { mediaId } = useParams();
@@ -37,97 +38,106 @@ export default function MediaDetails({ mediaType }) {
   );
 
   return (
-    <div className={styles.allContent}>
-      <div className={styles.contentWrapper}>
-        {images?.length ? <Gallery images={images} title={media?.title} /> : ''}
-        {media && (
-          <section className={styles.mediaSection}>
-            <header className={styles.titleHeader}>
-              <h1 className={styles.h1}>{media.title}</h1>{' '}
-              <WatchListButton
-                className={styles.watchlistButton}
-                media={media}
-              />
-            </header>
-            <div className={styles.titleFooter}>
-              <span>{new Date(media.releaseDate).getFullYear()}</span>
-              <span>
-                <FontAwesomeIcon className={styles.star} icon={faStar} />{' '}
-                {media.voteAverage.toFixed(1)}
-              </span>
-              {media.runtime && (
-                <span>{`${Math.floor(media.runtime / 60)}h ${Math.floor(
-                  media.runtime % 60
-                )}m`}</span>
+    <>
+      <Helmet>
+        <title>{`${media?.title} - `}YMDB</title>
+      </Helmet>
+      <div className={styles.allContent}>
+        <div className={styles.contentWrapper}>
+          {images?.length ? (
+            <Gallery images={images} title={media?.title} />
+          ) : (
+            ''
+          )}
+          {media && (
+            <section className={styles.mediaSection}>
+              <header className={styles.titleHeader}>
+                <h1 className={styles.h1}>{media.title}</h1>{' '}
+                <WatchListButton
+                  className={styles.watchlistButton}
+                  media={media}
+                />
+              </header>
+              <div className={styles.titleFooter}>
+                <span>{new Date(media.releaseDate).getFullYear()}</span>
+                <span>
+                  <FontAwesomeIcon className={styles.star} icon={faStar} />{' '}
+                  {media.voteAverage.toFixed(1)}
+                </span>
+                {media.runtime && (
+                  <span>{`${Math.floor(media.runtime / 60)}h ${Math.floor(
+                    media.runtime % 60
+                  )}m`}</span>
+                )}
+                {media.numberOfSeasons && (
+                  <span>{`${media.numberOfSeasons} Seasons`}</span>
+                )}
+                <span>{media.genres[0]?.name}</span>
+              </div>
+              <p className={styles.p}>{media.overview}</p>{' '}
+              {media.homepage && (
+                <a
+                  className={styles.a}
+                  href={media.homepage}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Official Site
+                </a>
               )}
-              {media.numberOfSeasons && (
-                <span>{`${media.numberOfSeasons} Seasons`}</span>
-              )}
-              <span>{media.genres[0].name}</span>
-            </div>
-            <p className={styles.p}>{media.overview}</p>{' '}
-            {media.homepage && (
-              <a
-                className={styles.a}
-                href={media.homepage}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Official Site
-              </a>
-            )}
-          </section>
-        )}
+            </section>
+          )}
 
-        {casts?.length ? (
-          <section className={styles.castSection}>
-            <h2>Cast</h2>
+          {casts?.length ? (
+            <section className={styles.castSection}>
+              <h2>Cast</h2>
 
-            <HorizontalScroll className={styles.horizontalScroll}>
-              <ul className={styles.castList}>
-                {casts.map((cast) => (
-                  <CastCard key={cast.id} cast={cast} />
-                ))}
-              </ul>
-            </HorizontalScroll>
-          </section>
+              <HorizontalScroll className={styles.horizontalScroll}>
+                <ul className={styles.castList}>
+                  {casts.map((cast) => (
+                    <CastCard key={cast.id} cast={cast} />
+                  ))}
+                </ul>
+              </HorizontalScroll>
+            </section>
+          ) : (
+            ''
+          )}
+
+          {reviewsData?.reviews?.length ? (
+            <>
+              <section>
+                <h2>{`${reviewsData.reviewTotalResults}`} Reviews</h2>
+                <ul className={styles.reviews}>
+                  {reviewsData.reviews.map((review) => (
+                    <Review key={review.id} review={review} />
+                  ))}
+                </ul>
+              </section>
+            </>
+          ) : (
+            <section>
+              <h2>There are no reviews about this movie yet!</h2>
+            </section>
+          )}
+        </div>
+
+        {recommendations?.length ? (
+          <aside className={styles.recommendationSection}>
+            <h2 className={styles.recommendationH2}>Recommendations</h2>
+            <ul className={styles.recommendations}>
+              {recommendations.map((recommendation) => (
+                <Recommendation
+                  key={recommendation.id}
+                  recommendation={recommendation}
+                />
+              ))}
+            </ul>
+          </aside>
         ) : (
           ''
         )}
-
-        {reviewsData?.reviews?.length ? (
-          <>
-            <section>
-              <h2>{`${reviewsData.reviewTotalResults}`} Reviews</h2>
-              <ul className={styles.reviews}>
-                {reviewsData.reviews.map((review) => (
-                  <Review key={review.id} review={review} />
-                ))}
-              </ul>
-            </section>
-          </>
-        ) : (
-          <section>
-            <h2>There are no reviews about this movie yet!</h2>
-          </section>
-        )}
       </div>
-
-      {recommendations?.length ? (
-        <aside className={styles.recommendationSection}>
-          <h2 className={styles.recommendationH2}>Recommendations</h2>
-          <ul className={styles.recommendations}>
-            {recommendations.map((recommendation) => (
-              <Recommendation
-                key={recommendation.id}
-                recommendation={recommendation}
-              />
-            ))}
-          </ul>
-        </aside>
-      ) : (
-        ''
-      )}
-    </div>
+    </>
   );
 }
