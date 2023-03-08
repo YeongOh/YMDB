@@ -14,6 +14,7 @@ export default function NavBar() {
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <NavLink className={styles.home} to='/'>
+          <img className={styles.logo} src='/logo.png' alt='' />
           YMDB
         </NavLink>
         <nav>
