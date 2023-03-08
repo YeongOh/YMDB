@@ -41,7 +41,7 @@
 
 .previousButton:hover,
 .nextButton:hover {
-  color: black;
+  color: var(--color-primary);
   transform: translateY(-150%) scale(1.05);
   transition: all 0.1s ease-in;
 }

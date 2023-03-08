@@ -41,7 +41,7 @@ export default function MediaDetails({ mediaType }) {
       <div className={styles.contentWrapper}>
         {images?.length ? <Gallery images={images} title={media?.title} /> : ''}
         {media && (
-          <section>
+          <section className={styles.mediaSection}>
             <header className={styles.titleHeader}>
               <h1 className={styles.h1}>{media.title}</h1>{' '}
               <WatchListButton
@@ -114,8 +114,8 @@ export default function MediaDetails({ mediaType }) {
       </div>
 
       {recommendations?.length ? (
-        <aside>
-          <h2>Recommendations</h2>
+        <aside className={styles.recommendationSection}>
+          <h2 className={styles.recommendationH2}>Recommendations</h2>
           <ul className={styles.recommendations}>
             {recommendations.map((recommendation) => (
               <Recommendation

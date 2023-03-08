@@ -1,11 +1,15 @@
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faFilm, faTv } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMediaQuery } from '@react-hook/media-query';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import styles from './NavBar.module.css';
 
 export default function NavBar() {
+  const isTabletScreen = useMediaQuery('only screen and (max-width: 1024px)');
+  const isMobileScreen = useMediaQuery('only screen and (max-width: 480px)');
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -22,7 +26,7 @@ export default function NavBar() {
                 }
               >
                 <FontAwesomeIcon icon={faFilm} />
-                Movies
+                {!isTabletScreen && !isMobileScreen && `Movies`}
               </NavLink>
             </li>
             <li>
@@ -33,7 +37,7 @@ export default function NavBar() {
                 }
               >
                 <FontAwesomeIcon icon={faTv} />
-                TV
+                {!isTabletScreen && !isMobileScreen && `TV`}
               </NavLink>
             </li>
             <li>
@@ -44,7 +48,7 @@ export default function NavBar() {
                 }
               >
                 <FontAwesomeIcon icon={faBookmark} />
-                Watchlist
+                {!isTabletScreen && !isMobileScreen && `Watchlist`}
               </NavLink>
             </li>
             <li className={styles.searchBarLi}>

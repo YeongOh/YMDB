@@ -34,13 +34,25 @@ export default function Gallery({ images, title }) {
     <section className={styles.section}>
       <div className={styles.slider}>
         {images.map((image) => (
-          <img
+          <picture
             key={image.filePath}
+            className={styles.picture}
             style={moveSlide}
-            className={styles.img}
-            src={`${TMDB_BACKDROP_URL.w1280}${image.filePath}`}
-            alt={title}
-          />
+          >
+            <source
+              media='(max-width:480px)'
+              srcSet={`${TMDB_BACKDROP_URL.w300}${image.filePath}`}
+            />
+            <source
+              media='(max-width:1024px)'
+              srcSet={`${TMDB_BACKDROP_URL.w700}${image.filePath}`}
+            />
+            <img
+              className={styles.img}
+              src={`${TMDB_BACKDROP_URL.w1280}${image.filePath}`}
+              alt={title}
+            />
+          </picture>
         ))}
       </div>
       {sliderIndex !== 0 && (

@@ -20,11 +20,21 @@ export default function Card({ mediaType, media, slider }) {
       className={`${slider ? styles.sliderCard : styles.card}`}
       onClick={handleClick}
     >
-      <img
-        className={styles.img}
-        src={`${TMDB_POSTER_URL.w300}${posterPath}`}
-        alt={title}
-      />
+      <picture>
+        <source
+          media='(max-width:480px)'
+          srcSet={`${TMDB_POSTER_URL.w154}${posterPath}`}
+        />
+        <source
+          media='(max-width:700px)'
+          srcSet={`${TMDB_POSTER_URL.w185}${posterPath}`}
+        />
+        <img
+          className={styles.img}
+          src={`${TMDB_POSTER_URL.w300}${posterPath}`}
+          alt={title}
+        />
+      </picture>
       <WatchListButton media={media} className={styles.watchlistButton} />
       <div className={styles.content}>
         <div className={styles.title}>{title || name}</div>

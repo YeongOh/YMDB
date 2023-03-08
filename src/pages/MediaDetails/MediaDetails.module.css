@@ -1,11 +1,21 @@
 .allContent {
   max-width: 1440px;
   display: flex;
+  justify-content: center;
   gap: 2rem;
 }
 
 .contentWrapper {
-  max-width: 1240px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  max-width: 1024px;
+  padding: 1rem;
+}
+
+.mediaSection {
+  display: flex;
+  flex-direction: column;
 }
 
 .titleHeader {
@@ -60,9 +70,44 @@
   gap: 0.5rem;
 }
 
-.horizontalScroll {
-}
-
 .star {
   color: var(--color-star);
+}
+
+@media screen and (max-width: 1240px) {
+  .allContent {
+    max-width: 1240px;
+  }
+  .contentWrapper {
+    max-width: 800px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .contentWrapper {
+    max-width: 640px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .allContent {
+    flex-direction: column;
+  }
+  .recommendationSection {
+    padding: 1rem;
+  }
+  .recommendationH2 {
+    text-align: center;
+  }
+  .recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .allContent {
+    max-width: 400px;
+  }
 }

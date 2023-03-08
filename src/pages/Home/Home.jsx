@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@react-hook/media-query';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
@@ -37,42 +38,47 @@ export default function Home() {
     queryFn: () => getNowPlaying(MEDIA_TYPE.tv),
   });
 
+  const isTabletScreen = useMediaQuery('only screen and (max-width: 1024px)');
+  const isMobileScreen = useMediaQuery('only screen and (max-width: 480px)');
+
+  let sliderLength = isTabletScreen ? 5 : isMobileScreen ? 8 : 3;
+
   return (
     <>
       <Link to='/movie/nowPlaying' className={styles.link}>
         In Theaters
       </Link>
-      <Slider length={3}>
+      <Slider length={sliderLength}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={movieNowPlaying} slider />
       </Slider>
       <Link to='/movie/topRated' className={styles.link}>
         Top Rated Movies
       </Link>
-      <Slider length={3}>
+      <Slider length={sliderLength}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={movieTopRated} slider />
       </Slider>
       <Link to='/movie/popular' className={styles.link}>
         Popular Movies
       </Link>
-      <Slider length={3}>
+      <Slider length={sliderLength}>
         <Medias mediaType={MEDIA_TYPE.movie} medias={moviePopular} slider />
       </Slider>
       <Link to='/tv/nowPlaying' className={styles.link}>
         On Air
       </Link>
-      <Slider length={3}>
+      <Slider length={sliderLength}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvNowPlaying} slider />
       </Slider>
       <Link to='/tv/topRated' className={styles.link}>
         Top Rated TV Shows
       </Link>
-      <Slider length={3}>
+      <Slider length={sliderLength}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvTopRated} slider />
       </Slider>
       <Link to='/tv/popular' className={styles.link}>
         Popular TV Shows
       </Link>
-      <Slider length={3}>
+      <Slider length={sliderLength}>
         <Medias mediaType={MEDIA_TYPE.tv} medias={tvPopular} slider />
       </Slider>
     </>

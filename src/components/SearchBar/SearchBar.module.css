@@ -1,5 +1,6 @@
 .div {
-  min-width: 400px;
+  position: relative;
+  width: 100%;
 }
 
 .form {
@@ -47,4 +48,31 @@
 .button:focus {
   outline: none;
   background-color: #cccccc;
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    top: 4rem;
+    right: 5rem;
+    position: absolute;
+    background-color: white;
+  }
+
+  .input {
+    min-width: 200px;
+  }
+
+  .iconButton {
+    cursor: pointer;
+    width: 60px;
+    height: 49px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+
+  .iconButton:hover {
+    background-color: var(--color-grey-hover);
+  }
 }

@@ -1,6 +1,8 @@
 .header {
-  margin-top: 1rem;
   margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  height: 50px;
 }
 
 .wrapper {
@@ -9,6 +11,7 @@
   display: flex;
   align-items: center;
   gap: 10rem;
+  padding: 0 1rem;
 }
 
 .ul {
@@ -26,6 +29,7 @@
 .nav,
 .navActive {
   min-width: 80px;
+  min-height: 49px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,4 +55,28 @@
 
 .searchBarLi {
   margin-left: 4rem;
+  min-width: 70%;
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    max-width: 600px;
+    gap: 4rem;
+  }
+  .nav,
+  .navActive {
+    min-width: 60px;
+  }
+
+  .searchBarLi {
+    margin-left: 1rem;
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    max-width: 480px;
+    gap: 0rem;
+  }
 }

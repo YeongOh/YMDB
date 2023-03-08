@@ -112,6 +112,7 @@ export async function getSearchResult(keyword, page) {
 
 export const TMDB_POSTER_URL = {
   w154: 'https://image.tmdb.org/t/p/w154',
+  w185: 'https://image.tmdb.org/t/p/w185',
   w300: 'https://image.tmdb.org/t/p/w300',
 };
 
@@ -121,6 +122,8 @@ export const TMDB_PROFILE_URL = {
 };
 
 export const TMDB_BACKDROP_URL = {
+  w300: 'https://image.tmdb.org/t/p/w300',
+  w700: 'https://image.tmdb.org/t/p/w780',
   w1280: 'https://image.tmdb.org/t/p/w1280',
 };
 
