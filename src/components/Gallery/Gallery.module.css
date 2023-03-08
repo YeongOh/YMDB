@@ -71,3 +71,17 @@
   transition: color 0.2s ease-in;
   border-radius: 50%;
 }
+
+@media screen and (max-width: 500px) {
+  .progress {
+    bottom: 0.5rem;
+  }
+
+  .previousButton {
+    left: 0rem;
+  }
+
+  .nextButton {
+    right: 0rem;
+  }
+}

@@ -49,3 +49,13 @@
 .chevron {
   font-size: 16px;
 }
+
+@media screen and (max-width: 500px) {
+  .previousButton {
+    left: 0.5rem;
+  }
+
+  .nextButton {
+    right: 0.5rem;
+  }
+}
